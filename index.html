@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Analysis</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <h1>US Air Quality Index (AQI) Analysis</h1>
+
+    <h3>Introduction</h3>
+    <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
+       This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
+       Additionally, we investigate correlations with weather factors and population data.</p>
+
+    <h3>Data Sources</h3>
+    <ul>
+        <li><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI" target="_blank">EPA AQI Data</a>: Annual AQI reports for US states and counties.</li>
+        <li><a href="https://www.naturalearthdata.com/downloads/" target="_blank">Natural Earth Geospatial Data</a>: State and county shapefiles for mapping.</li>
+    </ul>
+
+    <h3>Visualizations</h3>
+
+    <!-- Seasonal Trends -->
+    <h4>Seasonal Trends in AQI</h4>
+    <p>This visualization highlights the average AQI by season for each state. Peaks in certain seasons may indicate increased pollution due to specific activities or natural events.</p>
+    <div class="center">
+        <img src="seasonal_trends.png" width="80%" alt="Seasonal Trends in AQI">
+    </div>
+
+    <!-- Category Distribution -->
+    <h4>AQI Category Distribution</h4>
+    <p>Understanding the distribution of AQI categories (Good, Moderate, Unhealthy) across states and years reveals regions with consistently poor air quality.</p>
+    <div class="center">
+        <iframe src="category_distribution.html" width="85%" height="400px" frameborder="0"></iframe>
+    </div>
+
+    <!-- Geospatial Patterns -->
+    <h4>Geospatial Patterns</h4>
+    <p>This map shows the average AQI by state, highlighting regional disparities in air quality.</p>
+    <div class="center">
+        <iframe src="aqi_map.html" width="85%" height="400px" frameborder="0"></iframe>
+    </div>
+
+    <!-- Correlation with Weather -->
+    <h4>Correlation with Weather Factors</h4>
+    <p>This heatmap illustrates correlations between AQI and weather variables like temperature, humidity, and wind speed.</p>
+    <div class="center">
+        <img src="weather_correlation.png" width="80%" alt="Correlation with Weather Factors">
+    </div>
+
+    <!-- Population-Weighted AQI -->
+    <h4>Population-Weighted AQI</h4>
+    <p>This bar plot shows the population-weighted AQI for each state, emphasizing the human impact of poor air quality.</p>
+    <div class="center">
+        <img src="population_weighted_aqi.png" width="80%" alt="Population-Weighted AQI">
+    </div>
+
+    <h3>Conclusion</h3>
+    <p>This analysis provides insights into air quality trends, regional disparities, and potential influencing factors. Further work could include time series analysis and exploring health impacts of AQI variations.</p>
+
+    <p>For questions or feedback, contact: <a href="mailto:your_email@example.com">Your Name</a></p>
+</body>
+</html>
