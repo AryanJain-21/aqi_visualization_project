@@ -28,7 +28,7 @@ bottom_5_states = state_avg_1980.tail(5)['State Name']
 filtered_states = state_avg_aqi[state_avg_aqi['State Name'].isin(pd.concat([top_5_states, bottom_5_states]))]
 
 # Multi-Line Chart
-plt.figure(figsize=(8, 6))
+plt.figure(figsize=(10, 8))
 # Plot top 5 states with solid lines
 for state in top_5_states:
     state_data = filtered_states[filtered_states['State Name'] == state]
@@ -74,7 +74,7 @@ region_category_1980 = combined_aqi[combined_aqi['Year'] == 1980].groupby(['Regi
 region_category_2021 = combined_aqi[combined_aqi['Year'] == 2021].groupby(['Region', 'Category']).size().unstack(fill_value=0)
 
 # Plot stacked bar charts
-fig, ax = plt.subplots(1, 2, figsize=(6, 4), sharey=True)
+fig, ax = plt.subplots(1, 2, figsize=(10, 8), sharey=True)
 region_category_1980.plot(kind='bar', stacked=True, colormap='viridis', edgecolor='black', ax=ax[0])
 ax[0].set_title('AQI Category Distribution by Region (1980)', fontsize=14)
 ax[0].set_xlabel('Region', fontsize=12)
@@ -105,7 +105,7 @@ bubble_2021 = combined_aqi[combined_aqi['Year'] == 2021].groupby('State Name').a
 }).rename(columns={'State Name': 'Data Points'})
 
 # Plot the bubble chart for 1980
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(10, 8))
 plt.scatter(
     bubble_1980['Number of Sites Reporting'],
     bubble_1980['AQI'],
@@ -124,7 +124,7 @@ plt.savefig("bubble_chart_aqi_1980.png")
 plt.show()
 
 # Plot the bubble chart for 2021
-plt.figure(figsize=(6, 4))
+plt.figure(figsize=(10, 8))
 plt.scatter(
     bubble_2021['Number of Sites Reporting'],
     bubble_2021['AQI'],
