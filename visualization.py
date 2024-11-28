@@ -47,6 +47,7 @@ plt.yticks(fontsize=12)
 plt.legend(fontsize=12)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
+plt.savefig("multi_line_aqi_trends.png")
 plt.show()
 
 # 2. Stacked Bar Chart: AQI Category Distribution by Region
@@ -86,6 +87,7 @@ ax[1].set_xlabel('Region', fontsize=12)
 ax[1].tick_params(axis='x', rotation=45)
 
 plt.tight_layout()
+fig.savefig("stacked_bar_aqi_distribution.png")
 plt.show()
 
 # 3. Bubble Chart: Relationship Between Number of Sites Reporting and AQI by State
@@ -118,6 +120,7 @@ plt.ylabel('Average AQI', fontsize=14)
 plt.grid(alpha=0.3)
 plt.legend(fontsize=12)
 plt.tight_layout()
+plt.savefig("bubble_chart_aqi_1980.png")
 plt.show()
 
 # Plot the bubble chart for 2021
@@ -136,4 +139,5 @@ plt.ylabel('Average AQI', fontsize=14)
 plt.grid(alpha=0.3)
 plt.legend(fontsize=12)
 plt.tight_layout()
+plt.savefig("bubble_chart_aqi_2021.png")
 plt.show()
