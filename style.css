@@ -66,10 +66,3 @@ h1 {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
-
-.text {
-    width: 35%;
-    font-size: 16px;
-    line-height: 1.6;
-    margin-left: 20px;
-}
