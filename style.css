@@ -58,5 +58,11 @@ h1 {
 
 .image {
     margin-right: 20px; /* Add some space between image and text */
+    width: 100%;
+    height: auto;
+    display: block; /* Prevents inline gap issues */
 }
 
+.text {
+    fill: 1;
+}
