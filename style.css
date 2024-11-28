@@ -57,20 +57,6 @@ main p, main ul {
     color: #333;
 }
 
-.container {
-    align-items: center;
-    display: flex;/* Align items vertically in center */
-}
-
-.image iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9; /* Maintains a proportional height */
-    border: 1px solid #ddd;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
-
 .text {
     flex: 1; /* Allow text to grow to fill remaining space */
 }
