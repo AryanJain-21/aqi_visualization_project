@@ -57,10 +57,19 @@ main p, main ul {
     color: #333;
 }
 
+.container {
+    align-items: center;
+    display: flex;/* Align items vertically in center */
+}
+
 /* Visualizations */
-.image-container{
-    text-align: center;
-    margin-top: 20px;
+.image {
+    flex: 0 0 65%; /* Don't allow the image to grow or shrink */
+    margin-right: 20px; /* Add some space between image and text */
+}
+
+.text {
+    flex: 1; /* Allow text to grow to fill remaining space */
 }
 
 center {
