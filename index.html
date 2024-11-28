@@ -7,59 +7,88 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>US Air Quality Index (AQI) Analysis</h1>
+    <header>
+        <h1>US Air Quality Index (AQI) Analysis</h1>
+    </header>
 
-    <h3>Introduction</h3>
-    <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
-       This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
-       Additionally, we investigate correlations with weather factors and population data.</p>
+    <main>
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
+               This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
+               Additionally, we investigate correlations with weather factors and population data.</p>
+        </section>
 
-    <h3>Data Sources</h3>
-    <ul>
-        <li><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI" target="_blank">EPA AQI Data</a>: Annual AQI reports for US states and counties.</li>
-        <li><a href="https://www.naturalearthdata.com/downloads/" target="_blank">Natural Earth Geospatial Data</a>: State and county shapefiles for mapping.</li>
-    </ul>
+        <!-- Data Sources Section -->
+        <section id="data-sources">
+            <h2>Data Sources</h2>
+            <ul>
+                <li><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI" target="_blank">EPA AQI Data</a>: Annual AQI reports for US states and counties.</li>
+                <li><a href="https://www.naturalearthdata.com/downloads/" target="_blank">Natural Earth Geospatial Data</a>: State and county shapefiles for mapping.</li>
+            </ul>
+        </section>
 
-    <h3>Visualizations</h3>
+        <!-- Visualizations Section -->
+        <section id="visualizations">
+            <h2>Visualizations</h2>
 
-    <!-- Seasonal Trends -->
-    <h4>Seasonal Trends in AQI</h4>
-    <p>This visualization highlights the average AQI by season for each state. Peaks in certain seasons may indicate increased pollution due to specific activities or natural events.</p>
-    <div class="center">
-        <img src="seasonal_trends.png" width="80%" alt="Seasonal Trends in AQI">
-    </div>
+            <!-- Seasonal Trends -->
+            <div class="visualization">
+                <h3>Seasonal Trends in AQI</h3>
+                <p>This visualization highlights the average AQI by season for each state. Peaks in certain seasons may indicate increased pollution due to specific activities or natural events.</p>
+                <div class="image-container">
+                    <img src="seasonal_trends.png" alt="Seasonal Trends in AQI">
+                </div>
+            </div>
 
-    <!-- Category Distribution -->
-    <h4>AQI Category Distribution</h4>
-    <p>Understanding the distribution of AQI categories (Good, Moderate, Unhealthy) across states and years reveals regions with consistently poor air quality.</p>
-    <div class="center">
-        <iframe src="category_distribution.html" width="85%" height="400px" frameborder="0"></iframe>
-    </div>
+            <!-- Category Distribution -->
+            <div class="visualization">
+                <h3>AQI Category Distribution</h3>
+                <p>Understanding the distribution of AQI categories (Good, Moderate, Unhealthy) across states and years reveals regions with consistently poor air quality.</p>
+                <div class="iframe-container">
+                    <iframe src="category_distribution.html"></iframe>
+                </div>
+            </div>
 
-    <!-- Geospatial Patterns -->
-    <h4>Geospatial Patterns</h4>
-    <p>This map shows the average AQI by state, highlighting regional disparities in air quality.</p>
-    <div class="center">
-        <iframe src="aqi_map.html" width="85%" height="400px" frameborder="0"></iframe>
-    </div>
+            <!-- Geospatial Patterns -->
+            <div class="visualization">
+                <h3>Geospatial Patterns</h3>
+                <p>This map shows the average AQI by state, highlighting regional disparities in air quality.</p>
+                <div class="iframe-container">
+                    <iframe src="aqi_map.html"></iframe>
+                </div>
+            </div>
 
-    <!-- Correlation with Weather -->
-    <h4>Correlation with Weather Factors</h4>
-    <p>This heatmap illustrates correlations between AQI and weather variables like temperature, humidity, and wind speed.</p>
-    <div class="center">
-        <img src="weather_correlation.png" width="80%" alt="Correlation with Weather Factors">
-    </div>
+            <!-- Correlation with Weather -->
+            <div class="visualization">
+                <h3>Correlation with Weather Factors</h3>
+                <p>This heatmap illustrates correlations between AQI and weather variables like temperature, humidity, and wind speed.</p>
+                <div class="image-container">
+                    <img src="weather_correlation.png" alt="Correlation with Weather Factors">
+                </div>
+            </div>
 
-    <!-- Population-Weighted AQI -->
-    <h4>Population-Weighted AQI</h4>
-    <p>This bar plot shows the population-weighted AQI for each state, emphasizing the human impact of poor air quality.</p>
-    <div class="center">
-        <img src="population_weighted_aqi.png" width="80%" alt="Population-Weighted AQI">
-    </div>
+            <!-- Population-Weighted AQI -->
+            <div class="visualization">
+                <h3>Population-Weighted AQI</h3>
+                <p>This bar plot shows the population-weighted AQI for each state, emphasizing the human impact of poor air quality.</p>
+                <div class="image-container">
+                    <img src="population_weighted_aqi.png" alt="Population-Weighted AQI">
+                </div>
+            </div>
+        </section>
 
-    <h3>Conclusion</h3>
-    <p>This analysis provides insights into air quality trends, regional disparities, and potential influencing factors. Further work could include time series analysis and exploring health impacts of AQI variations.</p>
+        <!-- Conclusion Section -->
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>This analysis provides insights into air quality trends, regional disparities, and potential influencing factors. Further work could include time series analysis and exploring health impacts of AQI variations.</p>
+            <p>For questions or feedback, contact: <a href="mailto:your_email@example.com">Your Name</a></p>
+        </section>
+    </main>
 
-    <p>For questions or feedback, contact: <a href="mailto:your_email@example.com">Your Name</a></p>
+    <footer>
+        <p>&copy; 2024 AQI Analysis. All rights reserved.</p>
+    </footer>
 </body>
 </html>
