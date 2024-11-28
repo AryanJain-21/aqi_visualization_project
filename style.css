@@ -52,17 +52,24 @@ h1 {
 }
 
 .container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    display: flex;/* Align items vertically in center */
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.image {
-    margin-right: 20px; /* Add some space between image and text */
-    width: 100%;
+.image iframe, .image img {
+    width: 60%; 
     height: auto;
-    display: block; /* Prevents inline gap issues */
+    border: 1px solid black;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .text {
-    fill: 1;
+    width: 35%;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-left: 20px;
 }
