@@ -57,17 +57,26 @@ main p, main ul {
     color: #333;
 }
 
+/* Visualizations */
 .image-container, .iframe-container {
     text-align: center;
     margin-top: 20px;
 }
 
-.image-container img, .iframe-container iframe {
-    max-width: 100%;
-    height: auto;
+/* Make the iframe larger */
+.iframe-container iframe {
+    width: 100%; /* Use full width of the container */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    height: 700px; /* Increase height to make the map more prominent */
     border: 1px solid #ddd;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
+
+/* Adjust iframe container for spacing if needed */
+.iframe-container {
+    max-width: 1200px; /* Constrain the overall container width */
+    margin: 0 auto; /* Center the container on the page */
 }
 
 /* Footer */
