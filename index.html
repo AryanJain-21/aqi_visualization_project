@@ -3,138 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQI Analysis</title>
+    <title>AQI study</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <h1>US Air Quality Index (AQI) Analysis</h1>
-    </header>
+    
+    <h1> US AQI analysis over Time</h1>
 
-    <main>
-        <!-- Introduction Section -->
-        <section id="introduction">
-            <h2>Introduction</h2>
-            <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
-               This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
-               Additionally, we investigate correlations with weather factors and population data.</p>
-        </section>
+    <h3>Overall Introduction</h3>
 
-        <!-- Data Sources Section -->
-        <section id="data-sources">
-            <h2>Data Sources</h2>
-            <ul>
-                <li><a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI" target="_blank">EPA AQI Data</a>: Annual AQI reports for US states and counties.</li>
-                <li><a href="https://www.naturalearthdata.com/downloads/" target="_blank">Natural Earth Geospatial Data</a>: State and county shapefiles for mapping.</li>
-            </ul>
-        </section>
+    <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
+        This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
+        Additionally, we investigate correlations with weather factors and population data.</p>
 
-        <!-- Visualizations Section -->
-        <section id="visualizations">
-            <h2>Visualizations</h2>
+    <p>Monitoring the unemployment rate provides insights into 
+        various aspects of the economy, such as consumer spending,
+         business confidence, and government policies' effectiveness.
+        A high unemployment rate may indicate economic downturns, 
+        leading to decreased consumer spending, reduced business 
+        investments, and potential social unrest. Conversely, 
+        a low unemployment rate signifies a robust economy with 
+        ample job opportunities, contributing to higher consumer 
+        confidence and economic growth.</p>
 
-            <div class = 'visualization'>
-                <div class = 'center'>
-                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
-                    <iframe src="stacked_bar_aqi_distribution.png" width="100%" height="400px" frameborder="0"></iframe>
-                </div>
-                <div class = 'text'>
-                    <p> These stacked bar charts compare the distribution of AQI categories 
-                        (e.g., Good, Moderate, Unhealthy) across major U.S. regions in 1980 and 2021. 
-                        Each region is displayed as a separate bar, with segments showing the proportion of 
-                        days falling into each AQI category. The 1980 chart highlights regions struggling 
-                        with higher proportions of "Unhealthy" and "Very Unhealthy" days, whereas the 2021 
-                        chart reveals a significant shift toward more "Good" and "Moderate" AQI days in many regions. 
-                        This side-by-side comparison underscores the regional disparities in air quality improvement 
-                        over time and helps pinpoint areas still facing persistent pollution challenges. 
-                        It is a crucial tool for evaluating the success of regional policies and environmental 
-                        management efforts.
-                    </p>
-                </div>            
+    <p>Several social factors are closely related to the unemployment
+         rate. Persistent unemployment can lead to financial hardships,
+          increased poverty rates, and reduced access to essential 
+          services, such as healthcare and education. Moreover, 
+          unemployment may exacerbate existing social inequalities, 
+          disproportionately affecting marginalized communities, 
+          including minorities, youth, and individuals with lower 
+          educational attainment.</p>
+
+    <p>To learn more about the US unemployment rate and its implications,
+         you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
+         analysis reports from reputable research organizations like 
+         <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
+
+    <h3>Introduction to the data</h3>
+
+    <p> Our analysis makes use of two datasets. the first data is 
+        a data set called `us_statewide_crime.csv` which contains 
+        the following crime statistics for all US states and the 
+        District of Columbia in 2010. The data has 50 rows with 9 
+        features. The detail information about the features are listed
+        in the following table:</p>  
+
+        <div class="center">
+        <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0lax">Variable Name</th>
+                <th class="tg-0lax">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">State</td>
+                <td class="tg-0lax">State name</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Violent_Crime</td>
+                <td class="tg-0lax">Violent crime rate (per 100,000 residents)</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Murder_Rate</td>
+                <td class="tg-0lax">Murder rate (per 100,000 residents)</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Poverty</td>
+                <td class="tg-0lax">Percent of residents below the poverty rate</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">High_School</td>
+                <td class="tg-0lax">Percent of residents with a high school degree</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">College</td>
+                <td class="tg-0lax">Percent of residents with a four-year college degree</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Single_Parent</td>
+                <td class="tg-0lax">Percent of children living in single parent families</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Unemployed</td>
+                <td class="tg-0lax">Unemployment rate</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Metropolitan</td>
+                <td class="tg-0lax">Percent of residents living in a metropolitan area</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+        <p>Meanwhile, we also believe that the geographical 
+            information is important when evaluating the unemployment
+            rate. Therefore, we also make use of geographical information 
+            on <a href="https://www.naturalearthdata.com/downloads/">Natural Earth</a>. 
+            The website provides the geographical information for making maps for US states. 
+        </p>
+
+        <p>To make a better data visualization, we remove the Alaska and Hawaii
+            from the data. Following is an interactive map for the 
+            lower 48 states in US. User can zoom in the map. The color
+            indicates the unemployment rate for each state. When click any 
+            state, other social factors will be revealed for the state. </p>
+
+            <div class = 'center'>
+                <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
             </div>
+            
+            <p>The 1980 AQI Heatmap, as shown below, displays that in many parts of the county, 
+                the average AQI was significantly high, particularly in the Northeast.</p>
 
-            <div class = 'visualization'>
-                <div class = 'center'>
-                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
-                    <iframe src="multi_line_aqi_trends.png" width="100%" height="400px" frameborder="0"></iframe>
-                </div>
-                <div class = 'text'>
-                    <p> This chart illustrates the AQI trends over time for the five most polluted states and the 
-                        five least polluted states, based on data from 1980 and 2021. The top 5 states are 
-                        represented with solid lines, showing significant reductions in AQI for most of these states,
-                         reflecting progress in combating air pollution. The bottom 5 states are shown with 
-                         dashed lines, emphasizing their consistently low AQI levels across both years. 
-                         This visualization provides insights into the effectiveness of air quality 
-                         improvement measures over time, highlighting states that have made substantial 
-                         progress and those that maintain clean air standards. Policymakers and researchers 
-                         can leverage this data to identify successful strategies and areas requiring further 
-                         intervention.
-                    </p>
-                </div>            
+            <div class = 'center'>
+                <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
             </div>
+            <p>The 2024 AQI heatmap, as shown below, on the contrary has a very noticeable improvement 
+                in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
+                and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
+                like the Northeast and some of the South. This correlates with a study showing that the top 
+                three biggest decreases in air pollution during lockdown in America happened in Washington DC 
+                with -21.1%, New York with -20.7%, and Boston with -18.5%
+            </p>
 
-            <div class = 'visualization'>
-                <div class = 'center'>
-                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
-                    <iframe src="bubble_chart_aqi_1980.png" width="100%" height="400px" frameborder="0"></iframe>
-                </div>
-                <div class = 'text'>
-                    <p> 
-                        The bubble charts examine the relationship between the average number of 
-                        monitoring sites in each state and the corresponding AQI values for 1980 
-                        and 2021. The size of each bubble represents the total number of data points
-                         for that state, providing insight into the extent of monitoring coverage. 
-                         The 1980 chart shows a sparse distribution of monitoring sites and higher 
-                         AQI values in many states, while the 2021 chart reflects a more extensive
-                          monitoring network and improved AQI levels for many states. 
-                          These visualizations are critical for assessing the impact of 
-                          monitoring infrastructure on air quality management, helping to identify
-                           states that may need expanded monitoring efforts to better track and 
-                           address air quality concerns.
-                    </p>
-                </div>            
+        <h3>Overview of the AQI</h3>
+        
+        <div class = 'container'>
+            <div class = 'image'>
+                <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
+                <iframe src="stacked_bar_aqi_distribution" width="100%" height="400px" frameborder="0"></iframe>
             </div>
+            <div class = 'text'>
+                <p> These stacked bar charts compare the distribution of AQI categories 
+                    (e.g., Good, Moderate, Unhealthy) across major U.S. regions in 1980 and 2021. 
+                    Each region is displayed as a separate bar, with segments showing the proportion of 
+                    days falling into each AQI category. The 1980 chart highlights regions struggling 
+                    with higher proportions of "Unhealthy" and "Very Unhealthy" days, whereas the 2021 
+                    chart reveals a significant shift toward more "Good" and "Moderate" AQI days in many regions. 
+                    This side-by-side comparison underscores the regional disparities in air quality improvement 
+                    over time and helps pinpoint areas still facing persistent pollution challenges. 
+                    It is a crucial tool for evaluating the success of regional policies and environmental 
+                    management efforts.
+                </p>
+            </div>            
+        </div>
+        
+        <h3> The relationship between unemployment rate and other social factors</h3>
 
-            <!-- Geospatial Patterns -->
-            <div class="visualization">
-                <h3>Geospatial Patterns</h3>
-                <p>The 1980 AQI Heatmap, as shown below, displays that in many parts of the county, 
-                    the average AQI was significantly high, particularly in the Northeast.</p>
-                <div class = 'center'>
-                    <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
-                </div>
-                <p>The 2024 AQI heatmap, as shown below, on the contrary has a very noticeable improvement 
-                    in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
-                    and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
-                    like the Northeast and some of the South. This correlates with a study showing that the top 
-                    three biggest decreases in air pollution during lockdown in America happened in Washington DC 
-                    with -21.1%, New York with -20.7%, and Boston with -18.5%</p>
-                <div class = 'center'>
-                    <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
-                </div>
-                
+        <div class = 'container'>
+            <div class = 'text'>
+                <p>Moreover, we also want to examine the relationship between
+                    unemployment rate and other social factors in the data. All 
+                    features are numerical thus we firts create a correlation
+                    plot to examine whether there are linear relationship between 
+                    unemployment rate with other social factors. Notice that if 
+                    the correlation is small, it only means that there is no potential
+                    linear relationship between two features. 
+                </p>
+                <p>
+                    Based on the correlation plot, among all the features, poverty 
+                    has the strongest correlation with the unemployment rate since
+                    they are both related to the economics. The percentage of single 
+                    parents is the second important feature which inidicates the 
+                    stability of family is also strongly related to the job market. 
+                    The increase of unemployment rate may also related to the increase 
+                    of violent crime and murder rate but has a negative relationship
+                    with education indicators, like the percentage of people who go to
+                    high school and college. The only variable that has no direct linear
+                    relation with the unemployment rate is Metropolitan, which means the 
+                    percent of residents living in a metropolitan area. 
+                </p>
             </div>
+            <div class = 'image'>
+                <img src="multi_line_aqi_trends.png" width="100%" height="500px" frameborder="0"></img>
+            </div>   
+        </div>
 
-            <!-- Correlation with Weather -->
-            <div class="visualization">
-                <h3>Correlation with Weather Factors</h3>
-                <p>This heatmap illustrates correlations between AQI and weather variables like temperature, humidity, and wind speed.</p>
-                <div class="image-container">
-                    <img src="weather_correlation.png" alt="Correlation with Weather Factors">
-                </div>
-            </div>
+        <p> This chart illustrates the AQI trends over time for the five most polluted states and the 
+            five least polluted states, based on data from 1980 and 2021. The top 5 states are 
+            represented with solid lines, showing significant reductions in AQI for most of these states,
+             reflecting progress in combating air pollution. The bottom 5 states are shown with 
+             dashed lines, emphasizing their consistently low AQI levels across both years. 
+             This visualization provides insights into the effectiveness of air quality 
+             improvement measures over time, highlighting states that have made substantial 
+             progress and those that maintain clean air standards. Policymakers and researchers 
+             can leverage this data to identify successful strategies and areas requiring further 
+             intervention.
+        </p>
 
-        </section>
+        <div class = 'center'>
+            <iframe src="scatter.html" width="85%" height="550px" frameborder="0"></iframe>
+        </div>
 
-        <!-- Conclusion Section -->
-        <section id="conclusion">
-            <h2>Conclusion</h2>
-            <p>This analysis provides insights into air quality trends, regional disparities, and potential influencing factors. Further work could include time series analysis and exploring health impacts of AQI variations.</p>
-        </section>
-    </main>
+        <h3>Compare MA to the other states</h3>
 
-    <footer>
-        <p> DS4200 Final Project </p>
-    </footer>
+        <p>
+            Since we are in MA, thus we want to take a closer look between
+            MA and other states. We create the following interactive plot
+            such that user can choose another state to compare with MA and 
+            show the bar plot on each factors. 
+        </p>
+
+        <div class = 'center'>
+            <iframe src="summary.html" width="95%" height="300px" frameborder="0"></iframe>
+        </div>
+
+        <h3>Summary and additional work</h3>
+
+        <p>
+            In this visualization analysis, we try to explore the US 
+            unemployment rate across states. We also examine the relation
+            between unemployment rate and other social factors. 
+        </p>
+        <p>
+            Unfortunately, this is the 2010 data thus may be different 
+            than the current economics status. Also, unemployment rate 
+            may fluctuate seasonally thus adding a time series analysis
+            will be more informative. 
+        </p>
+
+        <p>If you are interested in the project and want to share more
+            opinions or resource about the project, please contact:
+            Xiaoyi Yang (xiaoy.yang@northeastern.edu)
+        </p>
+
 </body>
 </html>

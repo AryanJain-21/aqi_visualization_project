@@ -1,89 +1,66 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 20px;
-    max-width: 1200px;
+    width: 1000px;
     margin: 0 auto;
-}
+    padding: 0 20px 20px 20px;
+    border: 3px solid black;
+  }
 
-/* Header Styling */
-header {
-    text-align: center;
+h1 {
+    margin: 0;
     padding: 20px 0;
-    border-bottom: 2px solid #ddd;
+    color: black;
+    text-align: center;
+  }
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-header h1 {
-    font-size: 2.5em;
-    color: #444;
+.tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
 }
 
-/* Section Styling */
-main section {
-    margin-bottom: 40px;
+.tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
 }
 
-main h2 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #222;
-    border-left: 5px solid #0066cc;
-    padding-left: 10px;
+.tg .tg-0lax {
+    text-align: left;
+    vertical-align: top;
 }
 
-main p, main ul {
-    margin-bottom: 15px;
-    font-size: 1em;
-    line-height: 1.8;
-}
-
-/* Visualizations */
-.visualization {
-    margin-bottom: 40px;
-}
-
-.visualization h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.text {
-    flex: 1; /* Allow text to grow to fill remaining space */
-}
-
-center {
+.center {
     margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 20px 0;
-    border-top: 2px solid #ddd;
-    font-size: 0.9em;
-    color: #666;
+.container {
+    align-items: center;
+    display: flex;/* Align items vertically in center */
 }
 
-/* Links */
-a {
-    color: #0066cc;
-    text-decoration: none;
+.image {
+    flex: 0 0 65%; /* Don't allow the image to grow or shrink */
+    margin-right: 20px; /* Add some space between image and text */
 }
 
-a:hover {
-    text-decoration: underline;
+.text {
+    flex: 1; /* Allow text to grow to fill remaining space */
 }
-
