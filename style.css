@@ -53,16 +53,25 @@ h1 {
 
 .container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    align-items: flex-start; /* Align the text to the top of the image */
+    margin-bottom: 20px; /* Add spacing between sections */
+}
+
+.image {
+    flex: 0 0 50%; /* Let the image take up 50% of the container */
+    margin-right: 20px; /* Add spacing between the image and text */
 }
 
 .image iframe, .image img {
-    width: 60%; 
-    height: auto;
-    border: 1px solid black;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    width: 100%; /* Ensure the image fills the image container */
+    height: auto; /* Maintain the aspect ratio */
+    border: 1px solid #ddd; /* Optional: Add border */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    border-radius: 5px; /* Optional: Rounded corners */
+}
+
+.text {
+    flex: 1; /* Allow the text to fill the remaining space */
+    font-size: 16px;
+    line-height: 1.6;
 }
