@@ -60,6 +60,3 @@ h1 {
     margin-right: 20px; /* Add some space between image and text */
 }
 
-.text {
-    flex: 1; /* Allow text to grow to fill remaining space */
-}
