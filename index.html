@@ -33,58 +33,97 @@
         <section id="visualizations">
             <h2>Visualizations</h2>
 
-            <!-- Visualization Container -->
-            <div class="visualization-container">
-                <div class="image">
-                    <iframe src="stacked_bar_aqi_distribution.png" frameborder="0"></iframe>
+            <div class = 'container'>
+                <div class = 'image'>
+                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
+                    <iframe src="stacked_bar_aqi_distribution.png" width="50%" height="300px" frameborder="0"></iframe>
                 </div>
-                <div class="text">
-                    <p>These stacked bar charts compare the distribution of AQI categories 
+                <div class = 'text'>
+                    <p> These stacked bar charts compare the distribution of AQI categories 
                         (e.g., Good, Moderate, Unhealthy) across major U.S. regions in 1980 and 2021. 
                         Each region is displayed as a separate bar, with segments showing the proportion of 
-                        days falling into each AQI category...</p>
+                        days falling into each AQI category. The 1980 chart highlights regions struggling 
+                        with higher proportions of "Unhealthy" and "Very Unhealthy" days, whereas the 2021 
+                        chart reveals a significant shift toward more "Good" and "Moderate" AQI days in many regions. 
+                        This side-by-side comparison underscores the regional disparities in air quality improvement 
+                        over time and helps pinpoint areas still facing persistent pollution challenges. 
+                        It is a crucial tool for evaluating the success of regional policies and environmental 
+                        management efforts.
+                    </p>
                 </div>            
             </div>
 
-            <div class="visualization-container">
-                <div class="image">
-                    <iframe src="multi_line_aqi_trends.png" frameborder="0"></iframe>
+            <div class = 'container'>
+                <div class = 'image'>
+                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
+                    <iframe src="multi_line_aqi_trends.png" width="50%" height="300px" frameborder="0"></iframe>
                 </div>
-                <div class="text">
-                    <p>This chart illustrates the AQI trends over time for the five most polluted states and the 
+                <div class = 'text'>
+                    <p> This chart illustrates the AQI trends over time for the five most polluted states and the 
                         five least polluted states, based on data from 1980 and 2021. The top 5 states are 
-                        represented with solid lines, showing significant reductions...</p>
+                        represented with solid lines, showing significant reductions in AQI for most of these states,
+                         reflecting progress in combating air pollution. The bottom 5 states are shown with 
+                         dashed lines, emphasizing their consistently low AQI levels across both years. 
+                         This visualization provides insights into the effectiveness of air quality 
+                         improvement measures over time, highlighting states that have made substantial 
+                         progress and those that maintain clean air standards. Policymakers and researchers 
+                         can leverage this data to identify successful strategies and areas requiring further 
+                         intervention.
+                    </p>
                 </div>            
             </div>
 
-            <div class="visualization-container">
-                <div class="image">
-                    <iframe src="bubble_chart_aqi_1980.png" frameborder="0"></iframe>
+            <div class = 'container'>
+                <div class = 'image'>
+                    <!-- <iframe src="histogram/index.html" width="100%" height="400px" frameborder="0"></iframe>-->
+                    <iframe src="bubble_chart_aqi_1980.png" width="50%" height="300px" frameborder="0"></iframe>
                 </div>
-                <div class="text">
-                    <p>The bubble charts examine the relationship between the average number of 
+                <div class = 'text'>
+                    <p> 
+                        The bubble charts examine the relationship between the average number of 
                         monitoring sites in each state and the corresponding AQI values for 1980 
-                        and 2021. The size of each bubble represents the total number of data points...</p>
+                        and 2021. The size of each bubble represents the total number of data points
+                         for that state, providing insight into the extent of monitoring coverage. 
+                         The 1980 chart shows a sparse distribution of monitoring sites and higher 
+                         AQI values in many states, while the 2021 chart reflects a more extensive
+                          monitoring network and improved AQI levels for many states. 
+                          These visualizations are critical for assessing the impact of 
+                          monitoring infrastructure on air quality management, helping to identify
+                           states that may need expanded monitoring efforts to better track and 
+                           address air quality concerns.
+                    </p>
                 </div>            
             </div>
 
             <!-- Geospatial Patterns -->
             <div class="visualization">
                 <h3>Geospatial Patterns</h3>
-                <p>The 1980 AQI Heatmap displays that in many parts of the county, 
+                <p>The 1980 AQI Heatmap, as shown below, displays that in many parts of the county, 
                     the average AQI was significantly high, particularly in the Northeast.</p>
-                <iframe src="aqi_choropleth_1980.html" frameborder="0"></iframe>
-                <p>The 2024 AQI heatmap reflects a very noticeable improvement in average AQI 
-                    throughout the country. It is clear that the Clean Air Act and other regulations...</p>
-                <iframe src="aqi_choropleth_2024.html" frameborder="0"></iframe>
+                <div class = 'center'>
+                    <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
+                </div>
+                <p>The 2024 AQI heatmap, as shown below, on the contrary has a very noticeable improvement 
+                    in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
+                    and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
+                    like the Northeast and some of the South. This correlates with a study showing that the top 
+                    three biggest decreases in air pollution during lockdown in America happened in Washington DC 
+                    with -21.1%, New York with -20.7%, and Boston with -18.5%</p>
+                <div class = 'center'>
+                    <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
+                </div>
+                
             </div>
 
             <!-- Correlation with Weather -->
             <div class="visualization">
                 <h3>Correlation with Weather Factors</h3>
                 <p>This heatmap illustrates correlations between AQI and weather variables like temperature, humidity, and wind speed.</p>
-                <img src="weather_correlation.png" alt="Correlation with Weather Factors">
+                <div class="image-container">
+                    <img src="weather_correlation.png" alt="Correlation with Weather Factors">
+                </div>
             </div>
+
         </section>
 
         <!-- Conclusion Section -->
@@ -95,7 +134,7 @@
     </main>
 
     <footer>
-        <p>DS4200 Final Project</p>
+        <p> DS4200 Final Project </p>
     </footer>
 </body>
 </html>
