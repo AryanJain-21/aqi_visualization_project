@@ -12,25 +12,20 @@ df['Season'] = df['Month'].map({12: 'Winter', 1: 'Winter', 2: 'Winter',
                                  9: 'Fall', 10: 'Fall', 11: 'Fall'})
 
 # Define the state to region mapping
-state_to_region = {
-    'Connecticut': 'New England', 'Maine': 'New England', 'Massachusetts': 'New England', 
-    'New Hampshire': 'New England', 'Rhode Island': 'New England', 'Vermont': 'New England',
-    'Illinois': 'Midwest', 'Indiana': 'Midwest', 'Iowa': 'Midwest', 'Kansas': 'Midwest', 
-    'Michigan': 'Midwest', 'Minnesota': 'Midwest', 'Missouri': 'Midwest', 'Nebraska': 'Midwest', 
-    'North Dakota': 'Midwest', 'Ohio': 'Midwest', 'South Dakota': 'Midwest', 'Wisconsin': 'Midwest',
-    'Delaware': 'South', 'Florida': 'South', 'Georgia': 'South', 'Maryland': 'South', 
-    'North Carolina': 'South', 'South Carolina': 'South', 'Virginia': 'South', 'District of Columbia': 'South', 
-    'West Virginia': 'South', 'Alabama': 'South', 'Kentucky': 'South', 'Mississippi': 'South', 
-    'Tennessee': 'South', 'Arkansas': 'South', 'Louisiana': 'South', 'Oklahoma': 'South', 
-    'Texas': 'South', 
-    'Arizona': 'West', 'Colorado': 'West', 'Idaho': 'West', 'Montana': 'West', 
-    'Nevada': 'West', 'New Mexico': 'West', 'Utah': 'West', 'Wyoming': 'West', 
-    'Alaska': 'West', 'California': 'West', 'Hawaii': 'West', 'Oregon': 'West', 
-    'Washington': 'West'
+regions = {
+    'Northeast': ['Connecticut', 'Maine', 'Massachusetts', 'New Hampshire', 'Rhode Island', 'Vermont',
+                  'New Jersey', 'New York', 'Pennsylvania'],
+    'Midwest': ['Illinois', 'Indiana', 'Iowa', 'Kansas', 'Michigan', 'Minnesota', 'Missouri', 'Nebraska',
+                'North Dakota', 'Ohio', 'South Dakota', 'Wisconsin'],
+    'South': ['Alabama', 'Arkansas', 'Delaware', 'Florida', 'Georgia', 'Kentucky', 'Louisiana', 'Maryland',
+              'Mississippi', 'North Carolina', 'Oklahoma', 'South Carolina', 'Tennessee', 'Texas', 'Virginia',
+              'West Virginia'],
+    'West': ['Alaska', 'Arizona', 'California', 'Colorado', 'Hawaii', 'Idaho', 'Montana', 'Nevada', 'New Mexico',
+             'Oregon', 'Utah', 'Washington', 'Wyoming']
 }
 
 # Map states to regions
-df['Region'] = df['State Name'].map(state_to_region)
+df['Region'] = df['State Name'].map(regions)
 
 # Group by region and season
 seasonal_avg = df.groupby(['Region', 'Season'])['AQI'].mean().reset_index()
