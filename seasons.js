@@ -16,7 +16,6 @@ function createAQIChart(jsonDataPath) {
         const colorScale = d3.scaleOrdinal(d3.schemeCategory10)
             .domain([...new Set(data.map(d => d.Region))]);
 
-        // Axes
         svg.append("g")
             .attr("transform", `translate(0,${height - margin.bottom})`)
             .call(d3.axisBottom(xScale));
@@ -31,7 +30,6 @@ function createAQIChart(jsonDataPath) {
             .x(d => xScale(d.Season))
             .y(d => yScale(d.AQI));
 
-        // Add transparent lines for better visual separation
         nestedData.forEach(([region, years]) => {
             years.forEach(([year, values]) => {
                 svg.append("path")
@@ -42,11 +40,10 @@ function createAQIChart(jsonDataPath) {
                     .attr("stroke-width", 1.5)
                     .attr("stroke-dasharray", year === 1980 ? "4,4" : "0")
                     .attr("fill", "none")
-                    .style("opacity", 0.8); // Slight transparency
+                    .style("opacity", 0.8);
             });
         });
 
-        // Better legend placement and formatting
         const legend = svg.append("g")
             .attr("transform", `translate(${width - margin.right + 20},${margin.top})`);
 
@@ -94,7 +91,7 @@ function createAQIChart(jsonDataPath) {
         yearLegend.append("text")
             .attr("x", 30)
             .attr("y", 35)
-            .text("2024")
+            .text("2023")
             .style("font-size", "12px");
     });
 }
