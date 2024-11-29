@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AQI Study</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -195,44 +196,22 @@
 
         <div class = 'container'>
             <div class = 'text'>
-                <p>Moreover, we also want to examine the relationship between
-                    unemployment rate and other social factors in the data. All 
-                    features are numerical thus we firts create a correlation
-                    plot to examine whether there are linear relationship between 
-                    unemployment rate with other social factors. Notice that if 
-                    the correlation is small, it only means that there is no potential
-                    linear relationship between two features. 
-                </p>
-                <p>
-                    Based on the correlation plot, among all the features, poverty 
-                    has the strongest correlation with the unemployment rate since
-                    they are both related to the economics. The percentage of single 
-                    parents is the second important feature which inidicates the 
-                    stability of family is also strongly related to the job market. 
-                    The increase of unemployment rate may also related to the increase 
-                    of violent crime and murder rate but has a negative relationship
-                    with education indicators, like the percentage of people who go to
-                    high school and college. The only variable that has no direct linear
-                    relation with the unemployment rate is Metropolitan, which means the 
-                    percent of residents living in a metropolitan area. 
+                <p>This chart illustrates the AQI trends over time for the five most polluted states and the 
+                    five least polluted states, based on data from 1980 and 2021. The top 5 states are 
+                    represented with solid lines, showing significant reductions in AQI for most of these states,
+                     reflecting progress in combating air pollution. The bottom 5 states are shown with 
+                     dashed lines, emphasizing their consistently low AQI levels across both years. 
+                     This visualization provides insights into the effectiveness of air quality 
+                     improvement measures over time, highlighting states that have made substantial 
+                     progress and those that maintain clean air standards. Policymakers and researchers 
+                     can leverage this data to identify successful strategies and areas requiring further 
+                     intervention.
                 </p>
             </div>
             <div class = 'image'>
                 <img src="multi_line_aqi_trends.png" width="100%" height="500px" frameborder="0"></img>
             </div>   
         </div>
-
-        <p> This chart illustrates the AQI trends over time for the five most polluted states and the 
-            five least polluted states, based on data from 1980 and 2021. The top 5 states are 
-            represented with solid lines, showing significant reductions in AQI for most of these states,
-             reflecting progress in combating air pollution. The bottom 5 states are shown with 
-             dashed lines, emphasizing their consistently low AQI levels across both years. 
-             This visualization provides insights into the effectiveness of air quality 
-             improvement measures over time, highlighting states that have made substantial 
-             progress and those that maintain clean air standards. Policymakers and researchers 
-             can leverage this data to identify successful strategies and areas requiring further 
-             intervention.
-        </p>
 
         <div class = 'center'>
             <iframe src="average_aqi_by_state.html" width="95%" height="600px" frameborder="0"></iframe>

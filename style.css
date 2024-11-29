@@ -1,16 +1,32 @@
-/* General Styles */
+/* General Font Styles */
 body {
-  margin: 0; /* Remove default body margins */
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
   padding: 0;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 main {
-  width: 1000px;
+  width: 75%;
   margin: 0 auto;
   padding: 20px;
-  border: 3px solid black; /* Add the border here */
-  margin-top: 60px; /* Offset for the fixed navbar */
-  background-color: #fff; /* Optional: Set a background color */
+  border: 3px solid black;
+  border-radius: 15px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
 h1,
