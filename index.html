@@ -6,6 +6,8 @@
     <title>AQI Study</title>
     <link href="style.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="seasons.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -231,6 +233,14 @@
         <div class = 'center'>
             <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
         </div>
+    </section>
+    <section id="aqi-trends">
+        <h3>AQI Trends by Region and Year</h3>
+        <p>The following chart shows AQI trends by region and year. Each region is represented by a unique color, and different line styles indicate different years.</p>
+        <div id="aqi-trends-chart"></div>
+        <script>
+            createAQIChart("seasonal_avg_combined.json");
+        </script>
     </section>
 
     <section id="summary">
