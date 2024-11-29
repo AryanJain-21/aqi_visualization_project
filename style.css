@@ -1,77 +1,136 @@
+/* General Styles */
 body {
-    width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px 20px 20px;
-    border: 3px solid black;
-  }
+  margin: 0; /* Remove default body margins */
+  padding: 0;
+}
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 3px solid black; /* Add the border here */
+  margin-top: 60px; /* Offset for the fixed navbar */
+  background-color: #fff; /* Optional: Set a background color */
+}
+
+h1,
+h2,
+h3,
+section[id] {
+  scroll-margin-top: 70px;
+}
 
 h1 {
-    margin: 0;
-    padding: 20px 0;
-    color: black;
-    text-align: center;
-  }
+  margin: 0;
+  padding: 20px 0;
+  color: black;
+  text-align: center;
+}
 
+/* Table Styles */
 .tg {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .tg td {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    overflow: hidden;
-    padding: 10px 5px;
-    word-break: normal;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
 }
 
 .tg th {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: normal;
-    overflow: hidden;
-    padding: 10px 5px;
-    word-break: normal;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
 }
 
 .tg .tg-0lax {
-    text-align: left;
-    vertical-align: top;
+  text-align: left;
+  vertical-align: top;
 }
 
+/* Centering Content */
 .center {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
+/* Container Styles */
 .container {
-    display: flex;
-    align-items: flex-start; /* Align the text to the top of the image */
-    margin-bottom: 20px; /* Add spacing between sections */
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px; /* Spacing between sections */
 }
 
 .image {
-    flex: 0 0 50%; /* Let the image take up 50% of the container */
-    margin-right: 20px; /* Add spacing between the image and text */
+  flex: 0 0 50%; /* Image takes up 50% of the container */
+  margin-right: 20px; /* Spacing between the image and text */
 }
 
-.image iframe, .image img {
-    width: 100%; /* Ensure the image fills the image container */
-    height: auto; /* Maintain the aspect ratio */
-    border: 1px solid #ddd; /* Optional: Add border */
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
-    border-radius: 5px; /* Optional: Rounded corners */
+.image iframe,
+.image img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid #ddd; /* Optional: Add border */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+  border-radius: 5px; /* Optional: Rounded corners */
 }
 
 .text {
-    flex: 1; /* Allow the text to fill the remaining space */
-    font-size: 16px;
-    line-height: 1.6;
+  flex: 1; /* Text fills remaining space */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Navigation Bar Styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #187bcd;
+  color: black;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }

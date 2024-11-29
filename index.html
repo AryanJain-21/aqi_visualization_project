@@ -3,132 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AQI study</title>
+    <title>AQI Study</title>
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#data">Data Overview</a></li>
+            <li><a href="#aqi-overview">AQI Overview</a></li>
+            <li><a href="#monitoring-sites">Monitoring Sites</a></li>
+            <li><a href="#unemployment">Unemployment Factors</a></li>
+            <li><a href="#comparison">State Comparison</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+<main>
+    <section id="introduction">
+        <h1> US AQI analysis over Time</h1>
+
+        <h3>Overall Introduction</h3>
     
-    <h1> US AQI analysis over Time</h1>
+        <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
+            This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
+            Additionally, we investigate correlations with weather factors and population data.</p>
+    
+        <p>Monitoring the unemployment rate provides insights into 
+            various aspects of the economy, such as consumer spending,
+             business confidence, and government policies' effectiveness.
+            A high unemployment rate may indicate economic downturns, 
+            leading to decreased consumer spending, reduced business 
+            investments, and potential social unrest. Conversely, 
+            a low unemployment rate signifies a robust economy with 
+            ample job opportunities, contributing to higher consumer 
+            confidence and economic growth.</p>
+    
+        <p>Several social factors are closely related to the unemployment
+             rate. Persistent unemployment can lead to financial hardships,
+              increased poverty rates, and reduced access to essential 
+              services, such as healthcare and education. Moreover, 
+              unemployment may exacerbate existing social inequalities, 
+              disproportionately affecting marginalized communities, 
+              including minorities, youth, and individuals with lower 
+              educational attainment.</p>
+    
+        <p>To learn more about the US unemployment rate and its implications,
+             you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
+             analysis reports from reputable research organizations like 
+             <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
+    </section>
 
-    <h3>Overall Introduction</h3>
+    <section id="data">
+        <h3>Introduction to the data</h3>
 
-    <p>The Air Quality Index (AQI) provides a measure of air pollution levels and their potential health effects. 
-        This analysis explores AQI trends across the United States over time, examining regional, seasonal, and categorical patterns. 
-        Additionally, we investigate correlations with weather factors and population data.</p>
-
-    <p>Monitoring the unemployment rate provides insights into 
-        various aspects of the economy, such as consumer spending,
-         business confidence, and government policies' effectiveness.
-        A high unemployment rate may indicate economic downturns, 
-        leading to decreased consumer spending, reduced business 
-        investments, and potential social unrest. Conversely, 
-        a low unemployment rate signifies a robust economy with 
-        ample job opportunities, contributing to higher consumer 
-        confidence and economic growth.</p>
-
-    <p>Several social factors are closely related to the unemployment
-         rate. Persistent unemployment can lead to financial hardships,
-          increased poverty rates, and reduced access to essential 
-          services, such as healthcare and education. Moreover, 
-          unemployment may exacerbate existing social inequalities, 
-          disproportionately affecting marginalized communities, 
-          including minorities, youth, and individuals with lower 
-          educational attainment.</p>
-
-    <p>To learn more about the US unemployment rate and its implications,
-         you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
-         analysis reports from reputable research organizations like 
-         <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
-
-    <h3>Introduction to the data</h3>
-
-    <p> Our analysis makes use of two datasets. the first data is 
-        a data set called `us_statewide_crime.csv` which contains 
-        the following crime statistics for all US states and the 
-        District of Columbia in 2010. The data has 50 rows with 9 
-        features. The detail information about the features are listed
-        in the following table:</p>  
-
-        <div class="center">
-        <table class="tg">
-            <thead>
-              <tr>
-                <th class="tg-0lax">Variable Name</th>
-                <th class="tg-0lax">Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="tg-0lax">State</td>
-                <td class="tg-0lax">State name</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Violent_Crime</td>
-                <td class="tg-0lax">Violent crime rate (per 100,000 residents)</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Murder_Rate</td>
-                <td class="tg-0lax">Murder rate (per 100,000 residents)</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Poverty</td>
-                <td class="tg-0lax">Percent of residents below the poverty rate</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">High_School</td>
-                <td class="tg-0lax">Percent of residents with a high school degree</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">College</td>
-                <td class="tg-0lax">Percent of residents with a four-year college degree</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Single_Parent</td>
-                <td class="tg-0lax">Percent of children living in single parent families</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Unemployed</td>
-                <td class="tg-0lax">Unemployment rate</td>
-              </tr>
-              <tr>
-                <td class="tg-0lax">Metropolitan</td>
-                <td class="tg-0lax">Percent of residents living in a metropolitan area</td>
-              </tr>
-            </tbody>
-            </table>
-        </div>
-        <p>Meanwhile, we also believe that the geographical 
-            information is important when evaluating the unemployment
-            rate. Therefore, we also make use of geographical information 
-            on <a href="https://www.naturalearthdata.com/downloads/">Natural Earth</a>. 
-            The website provides the geographical information for making maps for US states. 
-        </p>
-
-        <p>To make a better data visualization, we remove the Alaska and Hawaii
-            from the data. Following is an interactive map for the 
-            lower 48 states in US. User can zoom in the map. The color
-            indicates the unemployment rate for each state. When click any 
-            state, other social factors will be revealed for the state. </p>
-
-            <div class = 'center'>
-                <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
+        <p> Our analysis makes use of two datasets. the first data is 
+            a data set called `us_statewide_crime.csv` which contains 
+            the following crime statistics for all US states and the 
+            District of Columbia in 2010. The data has 50 rows with 9 
+            features. The detail information about the features are listed
+            in the following table:</p>  
+    
+            <div class="center">
+            <table class="tg">
+                <thead>
+                  <tr>
+                    <th class="tg-0lax">Variable Name</th>
+                    <th class="tg-0lax">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-0lax">State</td>
+                    <td class="tg-0lax">State name</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Violent_Crime</td>
+                    <td class="tg-0lax">Violent crime rate (per 100,000 residents)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Murder_Rate</td>
+                    <td class="tg-0lax">Murder rate (per 100,000 residents)</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Poverty</td>
+                    <td class="tg-0lax">Percent of residents below the poverty rate</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">High_School</td>
+                    <td class="tg-0lax">Percent of residents with a high school degree</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">College</td>
+                    <td class="tg-0lax">Percent of residents with a four-year college degree</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Single_Parent</td>
+                    <td class="tg-0lax">Percent of children living in single parent families</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Unemployed</td>
+                    <td class="tg-0lax">Unemployment rate</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">Metropolitan</td>
+                    <td class="tg-0lax">Percent of residents living in a metropolitan area</td>
+                  </tr>
+                </tbody>
+                </table>
             </div>
-            
-            <p>The 1980 AQI Heatmap, as shown below, displays that in many parts of the county, 
-                the average AQI was significantly high, particularly in the Northeast.</p>
-
-            <div class = 'center'>
-                <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
-            </div>
-            <p>The 2024 AQI heatmap, as shown below, on the contrary has a very noticeable improvement 
-                in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
-                and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
-                like the Northeast and some of the South. This correlates with a study showing that the top 
-                three biggest decreases in air pollution during lockdown in America happened in Washington DC 
-                with -21.1%, New York with -20.7%, and Boston with -18.5%
+            <p>Meanwhile, we also believe that the geographical 
+                information is important when evaluating the unemployment
+                rate. Therefore, we also make use of geographical information 
+                on <a href="https://www.naturalearthdata.com/downloads/">Natural Earth</a>. 
+                The website provides the geographical information for making maps for US states. 
             </p>
+    
+            <p>To make a better data visualization, we remove the Alaska and Hawaii
+                from the data. Following is an interactive map for the 
+                lower 48 states in US. User can zoom in the map. The color
+                indicates the unemployment rate for each state. When click any 
+                state, other social factors will be revealed for the state. </p>
+    
+                <div class = 'center'>
+                    <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
+                </div>
+                
+                <p>The 1980 AQI Heatmap, as shown below, displays that in many parts of the county, 
+                    the average AQI was significantly high, particularly in the Northeast.</p>
+    
+                <div class = 'center'>
+                    <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
+                </div>
+                <p>The 2024 AQI heatmap, as shown below, on the contrary has a very noticeable improvement 
+                    in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
+                    and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
+                    like the Northeast and some of the South. This correlates with a study showing that the top 
+                    three biggest decreases in air pollution during lockdown in America happened in Washington DC 
+                    with -21.1%, New York with -20.7%, and Boston with -18.5%
+                </p>
+    </section>
 
-        <h3>Overview of the AQI</h3>
+    <section id="aqi-overview">
+                <h3>Overview of the AQI</h3>
         
         <div class="container">
             <div class="text">
@@ -145,15 +162,16 @@
                 </p>
             </div>
             <div class="image">
-                <iframe src="stacked_bar_aqi_distribution.png" frameborder="0"></iframe>
+                <img src="stacked_bar_aqi_distribution.png" frameborder="0"></img>
             </div>
         </div>
-
+    </section>
+    <section id="monitoring-sites">
         <h3> Relationship between Monitoring Sites and AQI Values </h3>
 
         <div class = 'container'>
             <div class = 'image'>
-                <iframe src="bubble_chart_aqi_1980.png" frameborder="0"></iframe>
+                <img src="bubble_chart_aqi_1980.png" frameborder="0"></img>
             </div>
             <div class = 'text'>
                 <p> 
@@ -170,8 +188,9 @@
                 </p>
             </div>            
         </div>
+    </section>
         
-        
+    <section id="unemployment">
         <h3> The relationship between unemployment rate and other social factors</h3>
 
         <div class = 'container'>
@@ -218,7 +237,9 @@
         <div class = 'center'>
             <iframe src="scatter.html" width="85%" height="550px" frameborder="0"></iframe>
         </div>
+    </section>
 
+    <section id="comparison">
         <h3>Compare MA to the other states</h3>
 
         <p>
@@ -231,7 +252,9 @@
         <div class = 'center'>
             <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
         </div>
+    </section>
 
+    <section id="summary">
         <h3>Summary and additional work</h3>
 
         <p>
@@ -250,6 +273,7 @@
             opinions or resource about the project, please contact:
             Xiaoyi Yang (xiaoy.yang@northeastern.edu)
         </p>
-
+    </section>
+</main>
 </body>
 </html>
