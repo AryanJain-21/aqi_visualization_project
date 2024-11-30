@@ -4,6 +4,14 @@ function createAQIChart(jsonDataPath) {
         .attr("width", width)
         .attr("height", height);
 
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", margin.top / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "18px")
+        .style("font-weight", "bold")
+        .text("AQI Trends Over Time Through Seasons");
+
     d3.json(jsonDataPath).then(data => {
         const xScale = d3.scalePoint()
             .domain(["Winter", "Spring", "Summer", "Fall"])
