@@ -8,6 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="seasons.js"></script>
+    <style>
+        /* Hover effect for navigation links */
+        nav ul li a:hover {
+            color: #f39c12; /* Cool highlight color */
+            border-bottom: 2px solid #f39c12; /* Underline on hover */
+        }
+
+        /*  Box- hadow for sections */
+        section {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Added: Smooth scroll for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -57,6 +76,11 @@
              you can visit the <a href="https://www.bls.gov/">Bureau of Labor Statistics website</a> or explore 
              analysis reports from reputable research organizations like 
              <a href="https://www.pewresearch.org/">Pew Research Center</a>.</p>
+        <
+        !-- Callout box for key points -->
+        <div style="background: #f4f4f4; border-left: 4px solid #3498db; padding: 15px; margin-top: 20px;">
+            <strong>Key Insight:</strong> Air quality and economic factors often intersect, underscoring the importance of integrated environmental and economic policies.
+        </div>
     </section>
 
     <section id="data">
@@ -270,5 +294,12 @@
         </p>
     </section>
 </main>
+<!-- Footer with hoverable links -->
+<footer style="text-align: center; padding: 20px; background: #333; color: #fff;">
+    <p>&copy; 2024 US AQI Analysis. All rights reserved.</p>
+    <p>
+        <a href="#introduction" style="color: #f39c12; text-decoration: none;">Back to Top</a>
+    </p>
+</footer>
 </body>
 </html>
