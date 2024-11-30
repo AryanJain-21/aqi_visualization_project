@@ -210,7 +210,7 @@
         </div>
     </section>
         
-    <section id="unemployment">
+    <section id="aqi-trends">
         <h3> The relationship between unemployment rate and other social factors</h3>
 
         <div class = 'container'>
@@ -235,6 +235,12 @@
         <div class = 'center'>
             <iframe src="average_aqi_by_state.html" width="95%" height="600px" frameborder="0"></iframe>
         </div>
+   
+            <p>The following chart shows AQI trends by region and year. Each region is represented by a unique color, and different line styles indicate different years.</p>
+            <div id="aqi-trends-chart"></div>
+            <script>
+                createAQIChart("seasonal_avg_combined.json");
+            </script>
     </section>
 
     <section id="comparison">
@@ -250,14 +256,6 @@
         <div class = 'center'>
             <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
         </div>
-    </section>
-    <section id="aqi-trends">
-        <h3>AQI Trends by Region and Year</h3>
-        <p>The following chart shows AQI trends by region and year. Each region is represented by a unique color, and different line styles indicate different years.</p>
-        <div id="aqi-trends-chart"></div>
-        <script>
-            createAQIChart("seasonal_avg_combined.json");
-        </script>
     </section>
 
     <section id="summary">
