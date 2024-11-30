@@ -43,6 +43,13 @@ h1 {
   text-align: center;
 }
 
+h1 span {
+  color: #f39c12; /* Highlight color for emphasis */
+  display: block;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
 /* Table Styles */
 .tg {
   border-collapse: collapse;
@@ -143,10 +150,41 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  color: #f39c12; /* Cool highlight color */
+  border-bottom: 2px solid #f39c12; /* Underline on hover */
+  text-decoration: none;
+}
+
+/* Section Styling */
+section {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
 }
 
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Callout Boxes */
+div[style*="background: #f4f4f4;"] {
+  background: #f4f4f4;
+  border-left: 4px solid #3498db;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+div[style*="background: #e3f2fd;"] {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+div[style*="background: #f4f4f4;"][style*="border-left: 4px solid #4caf50;"] {
+  background: #f4f4f4;
+  border-left: 4px solid #4caf50;
+  padding: 15px;
+  margin-top: 20px;
 }
