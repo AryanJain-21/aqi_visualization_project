@@ -51,37 +51,63 @@ h1 span {
 }
 
 /* Table Styles */
+/* General Table Styles */
 .tg {
   border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.tg td {
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  margin: 20px auto;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
 }
 
+/* Header Styles */
 .tg th {
-  border-color: black;
-  border-style: solid;
-  border-width: 1px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  overflow: hidden;
-  padding: 10px 5px;
-  word-break: normal;
+  background-color: #187bcd;
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 3px solid #f39c12;
 }
 
-.tg .tg-0lax {
+/* Row Styles */
+.tg td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+}
+
+/* Alternate Row Colors */
+.tg tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+/* Highlight Hover */
+.tg tr:hover {
+  background-color: #e3f2fd;
+}
+
+/* Alignments */
+.tg td,
+.tg th {
   text-align: left;
-  vertical-align: top;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .tg {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .tg th,
+  .tg td {
+    padding: 8px 10px;
+  }
 }
 
 /* Centering Content */
@@ -91,11 +117,15 @@ h1 span {
   justify-content: center;
 }
 
-/* Container Styles */
 .container {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px; /* Spacing between sections */
+  justify-content: flex-start; /* Align items to the left */
+  gap: 20px; /* Adds spacing between the two bubble charts */
+  margin: 20px; /* Adds spacing around the container */
+  padding-right: 40px; /* Creates more space on the right */
+  padding-left: 10px; /* Reduces space on the left */
+  box-sizing: border-box; /* Ensures padding is included in width/height calculations */
 }
 
 .image {
@@ -170,14 +200,14 @@ html {
 /* Callout Boxes */
 div[style*="background: #f4f4f4;"] {
   background: #f4f4f4;
-  border-left: 4px solid #3498db;
+  border-left: 4px solid #187bcd;
   padding: 15px;
   margin-top: 20px;
 }
 
 div[style*="background: #e3f2fd;"] {
   background: #e3f2fd;
-  border-left: 4px solid #2196f3;
+  border-left: 4px solid #187bcd;
   padding: 15px;
   margin-top: 20px;
 }
