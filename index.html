@@ -16,6 +16,7 @@
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#data">Data Overview</a></li>
             <li><a href="#aqi-overview">AQI Overview</a></li>
+            <li><a href="#aqi-heatmap">AQI Heatmap</a></li>
             <li><a href="#monitoring-sites">Monitoring Sites</a></li>
             <li><a href="#aqi-trends">AQI Trends</a></li>
             <li><a href="#comparison">Other Factors</a></li>
@@ -191,15 +192,21 @@
                     </tbody>
                 </table>
             </div>
-            
-                <br>
-    
+        </section>
+        <section id="aqi-heatmap">
+            <h3> AQI Heatmap Comparison: 1980 vs. 2024 </h3>
                 <div class = 'center'>
                     <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
                 </div>
                 
                 <p>The 1980 AQI Heatmap, as shown above, displays that in many parts of the county, 
                     the average AQI was significantly high, particularly in the Northeast.</p>
+
+                <div style="background: #fff3cd; border-left: 4px solid #ffcd39; padding: 15px; margin-top: 10px;">
+                    <strong>Note:</strong> The 1980 AQI data does not include Wyoming or South Dakota. These states are excluded from the heatmap due to the unavailability of data for that year.
+                </div>
+
+                <br>
     
                 <div class = 'center'>
                     <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
@@ -271,7 +278,7 @@
     </section>
         
     <section id="aqi-trends">
-        <h3> AQI trends over time </h3>
+        <h3> AQI trends Over Time </h3>
 
         <div class = 'container'>
             <div class = 'text'>
@@ -295,24 +302,8 @@
         <div class = 'center'>
             <iframe src="average_aqi_by_state.html" width="95%" height="600px" frameborder="0"></iframe>
         </div>
-   
-            
-    </section>
 
-    <section id="comparison">
-        <h3>Compare Population Density and AQI</h3>
-
-        <div class = 'center'>
-            <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
-        </div>
-
-        <p>
-            Since we are in MA, thus we want to take a closer look between
-            MA and other states. We create the following interactive plot
-            such that user can choose another state to compare with MA and 
-            show the bar plot on each factors. 
-        </p>
-
+        <h3>Seasonal AQI Trends</h3>
             <div id="aqi-trends-chart"></div>
             <script>
                 createAQIChart("seasonal_avg_combined.json");
@@ -327,6 +318,33 @@
       pollution control efforts. Overall, the visualization underscores the effectiveness of decades of regulatory measures
        while emphasizing the need for continued focus on seasonal pollution and regional disparities to ensure sustained 
        progress in air quality.</p>
+    </section>
+
+    <section id="comparison">
+        <h3>Compare Population Density and AQI</h3>
+
+        <div class = 'center'>
+            <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
+        </div>
+
+        <p>
+            This scatter plot illustrates the relationship between population density and the Air Quality Index (AQI) for U.S. states between 1980 and 2020. 
+            Each point represents a state, color-coded by its region (Mid-Atlantic, Midwest, New England, South, or West), with population density on the x-axis and AQI on the y-axis.
+        </p>
+        <p>
+            Between 1980 and 2020, this scatter plot highlights significant improvements in air quality across U.S. states while maintaining the relationship between population density and the Air Quality Index (AQI). 
+            In 1980, states with lower population densities, particularly in the Midwest and South, exhibited a wide range of AQI values, with some states having significantly high AQI levels. This underscores how industrial activities, regional pollution sources, and a lack of stringent environmental regulations heavily influenced air quality in less populated areas. 
+            Meanwhile, urbanized regions like New England and the Mid-Atlantic displayed relatively lower AQI values, reflecting the early adoption of pollution control measures and infrastructure investments in densely populated areas.
+        </p> 
+        <p>
+            By 2020, the data reveals a consistent downward shift in AQI values across all regions. 
+            The average AQI dropped from 51 in 1980 to 40 in 2020, which can be attributed to decades of regulatory efforts, including the Clean Air Act, advancements in emissions technology, and better enforcement of environmental standards. 
+            Regions with high population densities have further improved their air quality, solidifying the link between urbanization, infrastructure investment, and effective air quality management. For example, Connecticut had the worst recorded AQI in 1980 at 86, but it drastically improved to an AQI of 43 in 2020. 
+        </p>
+        <p>
+            Based on the data, we can conclude that although population density may play a factor in worse AQI, other factors, 
+            such as industrial activity, regional pollution sources, and the effectiveness of environmental regulations, significantly influence AQI values. 
+        </p>
     </section>
 
     <section id="summary">
@@ -368,10 +386,15 @@
 
         </p>
 
-        <p>If you are interested in the project and want to share more
-            opinions or resource about the project, please contact:
-            Xiaoyi Yang (xiaoy.yang@northeastern.edu)
-        </p>
+        <h3>References</h3>
+            <ol>
+                <li>Guarnieri, M., et al. “Air Quality Index and Air Quality Awareness among Adults in the United States.” Environmental Research, Academic Press, 25 Jan. 2020, 
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0013935120300773" target="_blank">www.sciencedirect.com/science/article/abs/pii/S0013935120300773.</a></li>
+                <li>“Air Quality National Summary.” EPA, Environmental Protection Agency, 16 Aug. 2024,
+                    <a href="https://www.epa.gov/air-trends/air-quality-national-summary" target="_blank">www.epa.gov/air-trends/air-quality-national-summary.</a></li>
+                <li>Kim, Moon-Jung, et al. “Impact of Income, Density, and Population Size on PM2.5 Pollutions: A Scaling Analysis of 254 Large Cities in Six Developed Countries.” International Journal of Environmental Research and Public Health, U.S. National Library of Medicine, 26 Aug. 2021, 
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8430803/" target="_blank">pmc.ncbi.nlm.nih.gov/articles/PMC8430803.</a></li>
+            </ol>
     </section>
 </main>
 <!-- Footer with hoverable links -->
