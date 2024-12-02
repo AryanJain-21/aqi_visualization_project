@@ -86,11 +86,6 @@ h1 span {
   background-color: #f4f4f4;
 }
 
-/* Highlight Hover */
-.tg tr:hover {
-  background-color: #e3f2fd;
-}
-
 /* Alignments */
 .tg td,
 .tg th {
