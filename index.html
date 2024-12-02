@@ -211,6 +211,13 @@
                 <div class = 'center'>
                     <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
                 </div>
+                <h4>User Interaction:</h4>
+                <ul>
+                    <li>Hover over each state on the map to see the state name and the average AQI.</li>
+                    <li>Click on each state to select it.</li>
+                    <li>Click and drag on the map to pan around.</li>
+                    <li>Click the <code>+</code> and <code>-</code> buttons to zoom in and out of the map.</li>
+                </ul>
                 <p>The 2024 AQI heatmap, as shown above, on the contrary has a very noticeable improvement 
                     in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
                     and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
@@ -303,6 +310,21 @@
             <iframe src="average_aqi_by_state.html" width="95%" height="600px" frameborder="0"></iframe>
         </div>
 
+        <h4>User Interaction:</h4>
+        <ul>
+            <li>Hover over each point to see the state name, AQI value, and year.</li>
+            <li>Click the dropdown to select a year.</li>
+        </ul>
+
+        <p>
+            This chart above compares the average Air Quality Index (AQI) by state for 2000 and 2024, showing significant improvements in air quality across the United States. 
+            In 2000, states like California and the District of Columbia had some of the highest AQI values, reflecting challenges from industrial activity and urban pollution. 
+            By 2024, these states showed substantial reductions in AQI, demonstrating the effectiveness of regulations, technological advancements, and cleaner energy adoption. 
+            States with historically low AQI values, such as Hawaii and Vermont, maintained their clean air standards, further highlighting the success of long-term environmental efforts. 
+            Overall, the decline in AQI across nearly all states stems from the progress made in combating air pollution over the past two decades.
+        </p>
+
+
         <h3>Seasonal AQI Trends</h3>
             <div id="aqi-trends-chart"></div>
             <script>
@@ -327,6 +349,13 @@
             <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
         </div>
 
+        <h4>User Interaction:</h4>
+        <ul>
+            <li>Hover over each point to see the state name, population density, AQI value, year and region.</li>
+            <li>Drag the slider to select different years between 1980 and 2020.</li>
+            <li>Click on the radio buttons to filter by region or select all regions.</li>
+        </ul>
+
         <p>
             This scatter plot illustrates the relationship between population density and the Air Quality Index (AQI) for U.S. states between 1980 and 2020. 
             Each point represents a state, color-coded by its region (Mid-Atlantic, Midwest, New England, South, or West), with population density on the x-axis and AQI on the y-axis.
@@ -343,7 +372,7 @@
         </p>
         <p>
             Based on the data, we can conclude that although population density may play a factor in worse AQI, other factors, 
-            such as industrial activity, regional pollution sources, and the effectiveness of environmental regulations, significantly influence AQI values. 
+            such as industrial activity, regional pollution sources, and the effectiveness of environmental regulations, can significantly influence AQI values. 
         </p>
     </section>
 

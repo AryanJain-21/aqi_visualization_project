@@ -218,3 +218,13 @@ div[style*="background: #f4f4f4;"][style*="border-left: 4px solid #4caf50;"] {
   padding: 15px;
   margin-top: 20px;
 }
+
+code {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 2px 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95em;
+}
