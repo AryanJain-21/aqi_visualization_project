@@ -5,8 +5,9 @@ function createAQIChart(jsonDataPath) {
   const svg = d3
     .select("#aqi-trends-chart")
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("responsive-svg", true);
 
   svg
     .append("text")
@@ -47,7 +48,7 @@ function createAQIChart(jsonDataPath) {
     svg
       .append("text")
       .attr("x", width / 2)
-      .attr("y", height)
+      .attr("y", height - margin.bottom / 5)
       .attr("text-anchor", "middle")
       .style("font-size", "14px")
       .style("font-weight", "bold")
