@@ -43,6 +43,7 @@ function createAQIChart(jsonDataPath) {
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(yScale));
 
+    // X-Axis Label
     svg
       .append("text")
       .attr("x", width / 2)
@@ -88,15 +89,24 @@ function createAQIChart(jsonDataPath) {
       });
     });
 
-    const legend = svg
+    // Regions legend
+    const regionsLegend = svg
       .append("g")
       .attr(
         "transform",
         `translate(${width - margin.right + 20},${margin.top})`
       );
 
+    regionsLegend
+      .append("text")
+      .attr("x", 0)
+      .attr("y", -10)
+      .text("Regions")
+      .style("font-size", "14px")
+      .style("font-weight", "bold");
+
     nestedData.forEach(([region], i) => {
-      legend
+      regionsLegend
         .append("rect")
         .attr("x", 0)
         .attr("y", i * 20)
@@ -104,7 +114,7 @@ function createAQIChart(jsonDataPath) {
         .attr("height", 10)
         .attr("fill", colorScale(region));
 
-      legend
+      regionsLegend
         .append("text")
         .attr("x", 20)
         .attr("y", i * 20 + 9)
@@ -112,11 +122,23 @@ function createAQIChart(jsonDataPath) {
         .style("font-size", "12px");
     });
 
-    const yearLegend = legend
+    // Years legend
+    const yearsLegend = svg
       .append("g")
-      .attr("transform", `translate(0,${nestedData.length * 20})`);
+      .attr(
+        "transform",
+        `translate(${width - margin.right + 150},${margin.top})`
+      );
 
-    yearLegend
+    yearsLegend
+      .append("text")
+      .attr("x", 0)
+      .attr("y", -10)
+      .text("Years")
+      .style("font-size", "14px")
+      .style("font-weight", "bold");
+
+    yearsLegend
       .append("line")
       .attr("x1", 0)
       .attr("x2", 20)
@@ -126,14 +148,14 @@ function createAQIChart(jsonDataPath) {
       .attr("stroke-width", 1.5)
       .attr("stroke-dasharray", "4,4");
 
-    yearLegend
+    yearsLegend
       .append("text")
       .attr("x", 30)
       .attr("y", 15)
       .text("1980")
       .style("font-size", "12px");
 
-    yearLegend
+    yearsLegend
       .append("line")
       .attr("x1", 0)
       .attr("x2", 20)
@@ -142,7 +164,7 @@ function createAQIChart(jsonDataPath) {
       .attr("stroke", "black")
       .attr("stroke-width", 1.5);
 
-    yearLegend
+    yearsLegend
       .append("text")
       .attr("x", 30)
       .attr("y", 35)
