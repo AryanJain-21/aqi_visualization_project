@@ -1,11 +1,13 @@
 function createAQIChart(jsonDataPath) {
   const width = 900,
     height = 500,
-    margin = { top: 50, right: 250, bottom: 50, left: 60 };
+    margin = { top: 50, right: 100, bottom: 50, left: 60 };
+  const totalWidth = width + margin.left + margin.right;
+
   const svg = d3
     .select("#aqi-trends-chart")
     .append("svg")
-    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("viewBox", `0 0 ${totalWidth} ${height}`)
     .attr("preserveAspectRatio", "xMidYMid meet")
     .classed("responsive-svg", true);
 
