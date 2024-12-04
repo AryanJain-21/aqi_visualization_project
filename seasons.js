@@ -47,7 +47,7 @@ function createAQIChart(jsonDataPath) {
     svg
       .append("text")
       .attr("x", width / 2)
-      .attr("y", height - 30)
+      .attr("y", height)
       .attr("text-anchor", "middle")
       .style("font-size", "14px")
       .style("font-weight", "bold")
