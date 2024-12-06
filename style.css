@@ -244,3 +244,25 @@ code {
   font-family: "Courier New", Courier, monospace;
   font-size: 0.95em;
 }
+
+/* Grid layout for the chart container */
+#aqi-trends-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Individual chart containers */
+.chart-container {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Chart titles */
+.chart-container h4 {
+  margin-bottom: 10px; 
+  font-size: 14px;
+}
