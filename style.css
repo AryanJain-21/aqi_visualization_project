@@ -5,15 +5,35 @@ body {
   padding: 0;
 }
 
+section p,
+section h1,
+section h2,
+section h3,
+section h4,
+section li {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 h1,
 h2,
 h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
+  font-size: 1.7rem;
+}
+
+li {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+h4 {
+  font-size: 1.5rem;
 }
 
 p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.6;
 }
 
@@ -41,6 +61,7 @@ h1 {
   padding: 20px 0;
   color: black;
   text-align: center;
+  font-size: 2rem;
 }
 
 h1 span {
