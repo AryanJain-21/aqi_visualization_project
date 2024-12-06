@@ -1,177 +1,135 @@
-function createAQIChart(jsonDataPath) {
+function createAQICharts(jsonDataPath) {
   const width = 900,
     height = 500,
     margin = { top: 50, right: 100, bottom: 50, left: 60 };
-  const totalWidth = width + margin.left + margin.right;
 
-  const svg = d3
-    .select("#aqi-trends-chart")
-    .append("svg")
-    .attr("viewBox", `0 0 ${totalWidth} ${height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet")
-    .classed("responsive-svg", true);
-
-  svg
-    .append("text")
-    .attr("x", width / 2)
-    .attr("y", margin.top / 2)
-    .attr("text-anchor", "middle")
-    .style("font-size", "18px")
-    .style("font-weight", "bold")
-    .text("AQI Trends Over Time Through Seasons");
-
+  // Fetch the data
   d3.json(jsonDataPath).then((data) => {
-    const xScale = d3
-      .scalePoint()
-      .domain(["Winter", "Spring", "Summer", "Fall"])
-      .range([margin.left, width - margin.right]);
+    // Group data by region
+    const groupedData = d3.group(data, (d) => d.Region);
 
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, d3.max(data, (d) => d.AQI)])
-      .nice()
-      .range([height - margin.bottom, margin.top]);
+    // Create a chart for each region
+    groupedData.forEach((regionData, region) => {
+      // Create a container for each chart
+      const container = d3
+        .select("#aqi-trends-container")
+        .append("div")
+        .classed("chart-container", true);
 
-    const colorScale = d3
-      .scaleOrdinal(d3.schemeCategory10)
-      .domain([...new Set(data.map((d) => d.Region))]);
+      // Create an SVG for the chart
+      const svg = container
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    svg
-      .append("g")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(xScale));
+      // Add a title for the chart
+      container
+        .append("h3")
+        .text(`AQI Trends Over Time for ${region}`)
+        .style("text-align", "center");
 
-    svg
-      .append("g")
-      .attr("transform", `translate(${margin.left},0)`)
-      .call(d3.axisLeft(yScale));
+      // Set up scales
+      const xScale = d3
+        .scalePoint()
+        .domain(["Winter", "Spring", "Summer", "Fall"])
+        .range([0, width]);
 
-    // X-Axis Label
-    svg
-      .append("text")
-      .attr("x", width / 2)
-      .attr("y", height - margin.bottom / 5)
-      .attr("text-anchor", "middle")
-      .style("font-size", "14px")
-      .style("font-weight", "bold")
-      .text("Season");
+      const yScale = d3
+        .scaleLinear()
+        .domain([0, d3.max(regionData, (d) => d.AQI)])
+        .nice()
+        .range([height, 0]);
 
-    svg
-      .append("text")
-      .attr("x", -(height / 2))
-      .attr("y", 20)
-      .attr("text-anchor", "middle")
-      .style("font-size", "14px")
-      .style("font-weight", "bold")
-      .attr("transform", "rotate(-90)")
-      .text("AQI");
+      const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
-    const nestedData = d3.groups(
-      data,
-      (d) => d.Region,
-      (d) => d.Year
-    );
+      // Add axes
+      svg
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale));
 
-    const line = d3
-      .line()
-      .x((d) => xScale(d.Season))
-      .y((d) => yScale(d.AQI));
+      svg.append("g").call(d3.axisLeft(yScale));
 
-    nestedData.forEach(([region, years]) => {
-      years.forEach(([year, values]) => {
+      // Add axes labels
+      svg
+        .append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .text("Season");
+
+      svg
+        .append("text")
+        .attr("x", -(height / 2))
+        .attr("y", -margin.left / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .style("font-weight", "bold")
+        .attr("transform", "rotate(-90)")
+        .text("AQI");
+
+      // Line generator
+      const line = d3
+        .line()
+        .x((d) => xScale(d.Season))
+        .y((d) => yScale(d.AQI));
+
+      // Group data by year within the region
+      const yearGroupedData = d3.group(regionData, (d) => d.Year);
+
+      yearGroupedData.forEach((yearData, year) => {
+        // Draw the line
         svg
           .append("path")
-          .datum(values)
-          .attr("class", "line")
-          .attr("d", line)
-          .attr("stroke", colorScale(region))
-          .attr("stroke-width", 1.5)
-          .attr("stroke-dasharray", year === 1980 ? "4,4" : "0")
+          .datum(yearData)
           .attr("fill", "none")
-          .style("opacity", 0.8);
+          .attr("stroke", year === 1980 ? "blue" : "red")
+          .attr("stroke-dasharray", year === 1980 ? "4,4" : null)
+          .attr("stroke-width", 1.5)
+          .attr("d", line);
       });
-    });
 
-    // Regions legend
-    const regionsLegend = svg
-      .append("g")
-      .attr(
-        "transform",
-        `translate(${width - margin.right + 20},${margin.top})`
-      );
+      // Add a legend for years
+      const legend = svg
+        .append("g")
+        .attr("transform", `translate(${width - margin.right},${margin.top})`);
 
-    regionsLegend
-      .append("text")
-      .attr("x", 0)
-      .attr("y", -10)
-      .text("Regions")
-      .style("font-size", "14px")
-      .style("font-weight", "bold");
+      legend
+        .append("line")
+        .attr("x1", 0)
+        .attr("x2", 20)
+        .attr("y1", 0)
+        .attr("y2", 0)
+        .attr("stroke", "blue")
+        .attr("stroke-width", 1.5)
+        .attr("stroke-dasharray", "4,4");
 
-    nestedData.forEach(([region], i) => {
-      regionsLegend
-        .append("rect")
-        .attr("x", 0)
-        .attr("y", i * 20)
-        .attr("width", 10)
-        .attr("height", 10)
-        .attr("fill", colorScale(region));
-
-      regionsLegend
+      legend
         .append("text")
-        .attr("x", 20)
-        .attr("y", i * 20 + 9)
-        .text(region)
+        .attr("x", 30)
+        .attr("y", 5)
+        .text("1980")
+        .style("font-size", "12px");
+
+      legend
+        .append("line")
+        .attr("x1", 0)
+        .attr("x2", 20)
+        .attr("y1", 20)
+        .attr("y2", 20)
+        .attr("stroke", "red")
+        .attr("stroke-width", 1.5);
+
+      legend
+        .append("text")
+        .attr("x", 30)
+        .attr("y", 25)
+        .text("2023")
         .style("font-size", "12px");
     });
-
-    // Years legend
-    const yearsLegend = svg
-      .append("g")
-      .attr(
-        "transform",
-        `translate(${width - margin.right + 150},${margin.top})`
-      );
-
-    yearsLegend
-      .append("text")
-      .attr("x", 0)
-      .attr("y", -10)
-      .text("Years")
-      .style("font-size", "14px")
-      .style("font-weight", "bold");
-
-    yearsLegend
-      .append("line")
-      .attr("x1", 0)
-      .attr("x2", 20)
-      .attr("y1", 10)
-      .attr("y2", 10)
-      .attr("stroke", "black")
-      .attr("stroke-width", 1.5)
-      .attr("stroke-dasharray", "4,4");
-
-    yearsLegend
-      .append("text")
-      .attr("x", 30)
-      .attr("y", 15)
-      .text("1980")
-      .style("font-size", "12px");
-
-    yearsLegend
-      .append("line")
-      .attr("x1", 0)
-      .attr("x2", 20)
-      .attr("y1", 30)
-      .attr("y2", 30)
-      .attr("stroke", "black")
-      .attr("stroke-width", 1.5);
-
-    yearsLegend
-      .append("text")
-      .attr("x", 30)
-      .attr("y", 35)
-      .text("2023")
-      .style("font-size", "12px");
   });
 }
