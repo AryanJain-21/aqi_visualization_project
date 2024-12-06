@@ -87,58 +87,15 @@
             By focusing on aggregated portions of the data, such as the average AQI by year or season for each region, 
             we were able to identify long-term trends without being overwhelmed by the raw data's size and detail.</p>
     
-            <div class="center">
-            <table class="tg">
-                <thead>
-                  <tr>
-                    <th class="tg-0lax">Variable Name</th>
-                    <th class="tg-0lax">Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="tg-0lax">State Name</td>
-                    <td class="tg-0lax">The full name of each state in the U.S.</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">County Name</td>
-                    <td class="tg-0lax">The full name of each county in the U.S.</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">State Code</td>
-                    <td class="tg-0lax">A unique number associated with each U.S. state</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">County Code</td>
-                    <td class="tg-0lax">A unique number associated with each U.S. county</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Date</td>
-                    <td class="tg-0lax">The date (YYYY-MM-DD) the AQI measurement was recorded</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">AQI</td>
-                    <td class="tg-0lax">The air quality index measurement</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Category</td>
-                    <td class="tg-0lax">The category based on the AQI rating (Hazardous, Very Unhealthy, Unhealthy, Unhealthy for Sensitive Groups, Moderate, Good)</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Defining Parameter</td>
-                    <td class="tg-0lax">The type of pollutant being measured at the reporting site (Ozone, SO<sub>2</sub>, CO, NO<sub>2</sub>)</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Defining Site</td>
-                    <td class="tg-0lax">The unique identifier associated with each reporting site</td>
-                  </tr>
-                  <tr>
-                    <td class="tg-0lax">Number of Sites Reporting</td>
-                    <td class="tg-0lax">The number of sites reporting data in a county</td>
-                  </tr>
-                </tbody>
-                </table>
-            </div>
+            <h4>Key Features of the Dataset:</h4>
+            <ul>
+                <li><strong>Location Details:</strong> Includes the state and county names, along with unique codes identifying each location.</li>
+                <li><strong>Time Dimension:</strong> Contains the specific dates when AQI measurements were recorded.</li>
+                <li><strong>Pollution Metrics:</strong> Tracks AQI values and assigns them to categories such as "Good," "Moderate," or "Hazardous," based on their severity.</li>
+                <li><strong>Pollutant Details:</strong> Identifies the specific pollutants contributing to air quality, such as ozone (O<sub>3</sub>), sulfur dioxide (SO<sub>2</sub>), carbon monoxide (CO), and nitrogen dioxide (NO<sub>2</sub>).</li>
+                <li><strong>Monitoring Sites:</strong> Provides information on the number of sites reporting data and unique site identifiers.</li>
+            </ul>
+            
 
             <h4>Population Dataset From the United States Census Bureau</h4>
             <p>To understand how population dynamics correlate with AQI changes, we incorporated population data from the United States Census Bureau. 
@@ -151,59 +108,16 @@
                 By combining these two datasets, we can investigate how factors like population density and urbanization might impact air quality over time. 
                 For example, we explore whether states with significant population growth experienced corresponding changes in AQI and whether improvements in air quality were consistent across regions with varying population trends.
             </p>
+
+            <h4>Key Features of the Dataset:</h4>
+            <ul>
+                <li><strong>Location and Geography:</strong> Includes the full name of each state, categorized by type as a state or region in the U.S.</li>
+                <li><strong>Time Dimension:</strong> Contains population data recorded every 10 years from 1910 to 2020.</li>
+                <li><strong>Population Metrics:</strong> Tracks the total resident population, percent change in population, and population density for each state or region.</li>
+                <li><strong>Density and Rankings:</strong> Provides population density figures and ranks states based on their density.</li>
+                <li><strong>Representation Details:</strong> Includes the number of representatives assigned to each state, changes in representation, and the average number of residents per representative.</li>
+            </ul>
             
-             <div class="center">
-                <table class="tg">
-                    <thead>
-                        <tr>
-                            <th class="tg-0lax">Variable Name</th>
-                            <th class="tg-0lax">Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="tg-0lax">Name</td>
-                            <td class="tg-0lax">The full name of each state in the U.S.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Geography Type</td>
-                            <td class="tg-0lax">The type of the geography as a state or a region in the U.S.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Year</td>
-                            <td class="tg-0lax">The year the data was recorded (A census is held every 10 years)</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Resident Population</td>
-                            <td class="tg-0lax">The total number of residents in a state, based on U.S. Census data.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Percent Change in Resident Population</td>
-                            <td class="tg-0lax">The percentage change in population compared to the previous census.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Resident Population Density</td>
-                            <td class="tg-0lax">The number of residents per square mile.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Resident Population Density Rank</td>
-                            <td class="tg-0lax">The rank of the state in terms of population density.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Number of Representatives</td>
-                            <td class="tg-0lax">The number of representatives assigned to the state based on its population.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Change in Number of Representatives</td>
-                            <td class="tg-0lax">The change in the number of representatives compared to the previous census.</td>
-                        </tr>
-                        <tr>
-                            <td class="tg-0lax">Average Apportionment Population Per Representative</td>
-                            <td class="tg-0lax">The average number of residents represented by each representative.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </section>
         <section id="aqi-heatmap">
             <h3> AQI Heatmap Comparison: 1980 vs. 2024 </h3>
