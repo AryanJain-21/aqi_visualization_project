@@ -71,7 +71,7 @@ Line charts are a good visualization method to represent seasonality and trendin
 ### Population Density and AQI
 
 **Marks and Channels**:  
-This scatter plot uses points as marks to represent individual states, with position along the x-axis encoding Resident Population Density and the y-axis encoding Air Quality Index (AQI). Color is used as a channel to differentiate regions (i.e., New England, Midwest), and size of the points remains constant. Interactive elements include a year slider to filter data by year and radio buttons for regional filtering. Hovering over each point also shows the state name.
+This scatter plot uses points as marks to represent individual states, with position along the x-axis encoding Resident Population Density and the y-axis encoding Air Quality Index (AQI). Color is used as a channel to differentiate regions (i.e., Northeast, Midwest), and size of the points remains constant. Interactive elements include a year slider to filter data by year and radio buttons for regional filtering. Hovering over each point also shows the state name.
 
 **Rationale**:  
 The scatter plot effectively visualizes the relationship between population density and AQI for each state, making it easy to observe regional patterns and trends over time. The use of position ensures quantitative comparisons, while color coding allows users to distinguish regional differences intuitively. The year slider enhances temporal analysis, and region-based filtering helps isolate specific areas for deeper investigation. This combination of interactivity and intuitive design supports a thorough exploration of how population density correlates with air quality across time and regions.
