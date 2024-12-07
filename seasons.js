@@ -84,7 +84,7 @@ function createAQICharts(jsonDataPath) {
 
       const legend = svg
         .append("g")
-        .attr("transform", `translate(${width - margin.right},${margin.top - 30})`);
+        .attr("transform", `translate(${width - margin.right},${margin.top - 60})`);
 
       legend
         .append("line")
