@@ -3,21 +3,16 @@ function createAQICharts(jsonDataPath) {
     height = 200,
     margin = { top: 40, right: 50, bottom: 40, left: 50 };
 
- 
   d3.json(jsonDataPath).then((data) => {
-    // Group data by region
     const groupedData = d3.group(data, (d) => d.Region);
 
-    // Set up the container as a 2x2 grid
     const container = d3
       .select("#aqi-trends-container")
       .style("display", "grid")
       .style("grid-template-columns", "1fr 1fr")
       .style("gap", "20px");
 
-   
     groupedData.forEach((regionData, region) => {
-     
       const chartContainer = container
         .append("div")
         .classed("chart-container", true)
@@ -27,14 +22,12 @@ function createAQICharts(jsonDataPath) {
         .append("h4")
         .text(`AQI Seasonal Trends: ${region}`);
 
-  
       const svg = chartContainer
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
-
 
       const xScale = d3
         .scalePoint()
@@ -47,14 +40,12 @@ function createAQICharts(jsonDataPath) {
         .nice()
         .range([height, 0]);
 
-     
       svg
         .append("g")
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(xScale).ticks(4));
 
       svg.append("g").call(d3.axisLeft(yScale).ticks(5));
-
 
       svg
         .append("text")
@@ -78,11 +69,9 @@ function createAQICharts(jsonDataPath) {
         .x((d) => xScale(d.Season))
         .y((d) => yScale(d.AQI));
 
- 
       const yearGroupedData = d3.group(regionData, (d) => d.Year);
 
       yearGroupedData.forEach((yearData, year) => {
-
         svg
           .append("path")
           .datum(yearData)
@@ -93,10 +82,9 @@ function createAQICharts(jsonDataPath) {
           .attr("d", line);
       });
 
-
       const legend = svg
         .append("g")
-        .attr("transform", `translate(${width - margin.right},${margin.top})`);
+        .attr("transform", `translate(${width - margin.right},${margin.top - 20})`);
 
       legend
         .append("line")
