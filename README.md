@@ -5,7 +5,7 @@ data: https://drive.google.com/drive/folders/1I_8PbrFG7xKdVbasirJzsVd-QwY0ZBHq?u
 
 # AQI Visualization Report
 
-[Website Link]([url](https://aryanjain-21.github.io/aqi_visualization_project/))
+[Website Link](https://aryanjain-21.github.io/aqi_visualization_project/)
 
 ### 1980 and 2024 Choropleth Displaying Average AQI of States
 
