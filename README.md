@@ -1,7 +1,6 @@
-# aqi_visualization_project
+Data Downloads: https://drive.google.com/drive/folders/1I_8PbrFG7xKdVbasirJzsVd-QwY0ZBHq?usp=sharing
 
-
-data: https://drive.google.com/drive/folders/1I_8PbrFG7xKdVbasirJzsVd-QwY0ZBHq?usp=sharing
+All data from the [EPA](https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI) and the [Census Bureau](https://www.census.gov/data/tables/time-series/dec/density-data-text.html)
 
 # AQI Visualization Report
 
