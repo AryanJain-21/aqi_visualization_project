@@ -2,7 +2,7 @@
 
 Data Downloads: https://drive.google.com/drive/folders/1I_8PbrFG7xKdVbasirJzsVd-QwY0ZBHq?usp=sharing
 
-All data from the [EPA](https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI) and the [Census Bureau](https://www.census.gov/data/tables/time-series/dec/density-data-text.html)
+All data is from the [EPA](https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI) and the [Census Bureau](https://www.census.gov/data/tables/time-series/dec/density-data-text.html). Other sources are listed at the bottom of the website.
 
 # AQI Visualization Report
 
