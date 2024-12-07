@@ -1,353 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AQI Study</title>
     <link href="style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="seasons.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav>
-        <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#data">Data Overview</a></li>
-            <li><a href="#aqi-heatmap">AQI Heatmap</a></li>
-            <li><a href="#aqi-overview">AQI Overview</a></li>
-            <li><a href="#aqi-events">Significant Events</a></li>
-            <li><a href="#aqi-trends">AQI Trends</a></li>
-            <li><a href="#comparison">Other Factors</a></li>
-            <li><a href="#summary">Summary</a></li>
-        </ul>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#data">Data Overview</a></li>
+        <li><a href="#aqi-heatmap">AQI Heatmap</a></li>
+        <li><a href="#aqi-overview">AQI Overview</a></li>
+        <li><a href="#aqi-events">Significant Events</a></li>
+        <li><a href="#aqi-trends">AQI Trends</a></li>
+        <li><a href="#comparison">Other Factors</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
     </nav>
-<main>
-    <section id="introduction">
-        <h1>Investigating the Evolution of Air Quality Across U.S. States from 1980 to 2024</h1>
+    <main>
+      <section id="introduction">
+        <h1>
+          Investigating the Evolution of Air Quality Across U.S. States from
+          1980 to 2024
+        </h1>
 
         <h3>Overall Introduction</h3>
 
+        <p>
+          Air quality is a fundamental pillar of both environmental health and
+          human well-being, though its importance often goes unnoticed. The Air
+          Quality Index (AQI) serves as a vital tool, offering a clear and
+          standardized measure of air pollution levels. This index not only
+          informs us about whether the air is safe to breathe but also acts as a
+          barometer of the broader state of our environment. Through its
+          insights, we can discern the effectiveness of policies, track the
+          impacts of urban expansion and industrial activities, and pinpoint
+          regions in need of urgent action.
+        </p>
 
-            <p>Air quality is a fundamental pillar of both environmental health and human well-being, though its importance often goes unnoticed. 
-                The Air Quality Index (AQI) serves as a vital tool, offering a clear and standardized measure of air pollution levels. This index 
-                not only informs us about whether the air is safe to breathe but also acts as a barometer of the broader state of our environment. 
-                Through its insights, we can discern the effectiveness of policies, track the impacts of urban expansion and industrial activities, 
-                and pinpoint regions in need of urgent action.
-            </p>
-    
-            <p> Poor air quality, reflected in a high AQI, brings a host of consequences. It exacerbates respiratory and cardiovascular illnesses, 
-                dims visibility, and accelerates environmental degradation. On the other hand, a low AQI symbolizes cleaner air, fostering better 
-                health outcomes, bolstering economic productivity, and supporting ecological balance. The story of air quality is shaped by many 
-                forces—traffic emissions, industrial operations, natural events like wildfires, and the enforcement of pollution control measures. 
-                Each plays a role in a complex narrative that connects human activity to environmental outcomes.
-    </p>
-    
-            <p>Examining AQI trends over time allows us to uncover patterns and progress, offering insights into how policies and societal behaviors 
-                influence the air we breathe. For example, the global slowdown during the COVID-19 pandemic provided a rare opportunity to observe 
-                the profound impact of reduced human activity on air quality, with many regions experiencing temporary improvements. Conversely, 
-                devastating wildfires in recent years have underscored the fragility of air quality in the face of climate change, leaving lingering 
-                effects on health and ecosystems. By analyzing these events, we can better understand how external factors shape the trajectory of air 
-                quality and what can be done to mitigate future challenges</p>
-    
-            <p>This analysis delves into AQI trends across the United States, exploring regional, seasonal, and categorical patterns while drawing 
-                connections to weather, population shifts, and significant external events. Our goal is not just to examine data but to spark awareness 
-                and inspire action. The air we breathe is a shared resource, connecting us all in its embrace. By raising awareness of the factors 
-                influencing air quality, we hope to empower communities, policymakers, and individuals to work together in preserving this most essential 
-                element of life. 
-    </p>
-    
-    
-        <p>To explore more about air quality and its implications, 
-            you can visit the <a href="https://www.epa.gov/">Environmental Protection Agency (EPA)</a> or access 
-            interactive resources like <a href="https://www.airnow.gov/">Airnow</a>.</p>
-    
+        <p>
+          Poor air quality, reflected in a high AQI, brings a host of
+          consequences. It exacerbates respiratory and cardiovascular illnesses,
+          dims visibility, and accelerates environmental degradation. On the
+          other hand, a low AQI symbolizes cleaner air, fostering better health
+          outcomes, bolstering economic productivity, and supporting ecological
+          balance. The story of air quality is shaped by many forces—traffic
+          emissions, industrial operations, natural events like wildfires, and
+          the enforcement of pollution control measures. Each plays a role in a
+          complex narrative that connects human activity to environmental
+          outcomes.
+        </p>
+
+        <p>
+          Examining AQI trends over time allows us to uncover patterns and
+          progress, offering insights into how policies and societal behaviors
+          influence the air we breathe. For example, the global slowdown during
+          the COVID-19 pandemic provided a rare opportunity to observe the
+          profound impact of reduced human activity on air quality, with many
+          regions experiencing temporary improvements. Conversely, devastating
+          wildfires in recent years have underscored the fragility of air
+          quality in the face of climate change, leaving lingering effects on
+          health and ecosystems. By analyzing these events, we can better
+          understand how external factors shape the trajectory of air quality
+          and what can be done to mitigate future challenges
+        </p>
+
+        <p>
+          This analysis delves into AQI trends across the United States,
+          exploring regional, seasonal, and categorical patterns while drawing
+          connections to weather, population shifts, and significant external
+          events. Our goal is not just to examine data but to spark awareness
+          and inspire action. The air we breathe is a shared resource,
+          connecting us all in its embrace. By raising awareness of the factors
+          influencing air quality, we hope to empower communities, policymakers,
+          and individuals to work together in preserving this most essential
+          element of life.
+        </p>
+
+        <p>
+          To explore more about air quality and its implications, you can visit
+          the
+          <a href="https://www.epa.gov/"
+            >Environmental Protection Agency (EPA)</a
+          >
+          or access interactive resources like
+          <a href="https://www.airnow.gov/">Airnow</a>.
+        </p>
+
         <!-- Callout box for key points -->
-        <div style="background: #f4f4f4; border-left: 4px solid #3498db; padding: 15px; margin-top: 20px;">
-            <strong>Fun Fact:</strong> Did you know that air pollution in the U.S. decreased by more than 70% since the Clean Air Act of 1970, even as the economy grew?
+        <div
+          style="
+            background: #f4f4f4;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-top: 20px;
+          "
+        >
+          <strong>Fun Fact:</strong> Did you know that air pollution in the U.S.
+          decreased by more than 70% since the Clean Air Act of 1970, even as
+          the economy grew?
         </div>
-    </section>
+      </section>
 
-    <section id="data">
+      <section id="data">
         <h3>Introduction to the data</h3>
-        
+
         <h4>AQI Dataset From the Environmental Protection Agency</h4>
 
-        <p>The main dataset for this project is obtained from the Environmental Protection Agency (EPA) Air Quality System (AQS) Data Mart, specifically focusing on Daily Air Quality Index (AQI) data. 
-            On the EPA website, the data is organized by year and into separate .csv files. 
-            We downloaded each file, read the data with pandas, and combined all the data for each year.
-             The data is available for download <a href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI" target="_blank">here</a>.
-        </p> 
-
-        <p>The dataset is comprehensive, with hundreds of thousands of entries per year for each county. 
-            Our entire dataset from 1980 to 2024 includes 11,419,415 rows and 10 attributes.
-            To efficiently analyze trends over time, we grouped the data into meaningful intervals, such as seasonal averages, yearly averages, and regional summaries. 
-            This allowed us to reduce the complexity of the data while preserving critical patterns and insights. 
-            By focusing on aggregated portions of the data, such as the average AQI by year or season for each region, 
-            we were able to identify long-term trends without being overwhelmed by the raw data's size and detail.</p>
-    
-            <h4>Key Features of the Dataset:</h4>
-            <ul>
-                <li><strong>Location Details:</strong> Includes the state and county names, along with unique codes identifying each location.</li>
-                <li><strong>Time Dimension:</strong> Contains the specific dates when AQI measurements were recorded.</li>
-                <li><strong>Pollution Metrics:</strong> Tracks AQI values and assigns them to categories such as "Good," "Moderate," or "Hazardous," based on their severity.</li>
-                <li><strong>Pollutant Details:</strong> Identifies the specific pollutants contributing to air quality, such as ozone (O<sub>3</sub>), sulfur dioxide (SO<sub>2</sub>), carbon monoxide (CO), and nitrogen dioxide (NO<sub>2</sub>).</li>
-                <li><strong>Monitoring Sites:</strong> Provides information on the number of sites reporting data and unique site identifiers.</li>
-            </ul>
-            
-
-            <h4>Population Dataset From the United States Census Bureau</h4>
-            <p>To understand how population dynamics correlate with AQI changes, we incorporated population data from the United States Census Bureau. 
-                The population dataset includes population estimates for each state and region from 1910 to 2020, with a census being conducted once every 10 years. 
-                This dataset contains a total of 684 rows and 10 attributes, offering a comprehensive view of population trends over more than a century. 
-                The data is available for download <a href="https://www.census.gov/data/tables/time-series/dec/density-data-text.html" target="_blank">here</a>.
-            </p>
-            
-            <p>This dataset allows us to analyze trends in AQI relative to population growth. 
-                By combining these two datasets, we can investigate how factors like population density and urbanization might impact air quality over time. 
-                For example, we explore whether states with significant population growth experienced corresponding changes in AQI and whether improvements in air quality were consistent across regions with varying population trends.
-            </p>
-
-            <h4>Key Features of the Dataset:</h4>
-            <ul>
-                <li><strong>Location and Geography:</strong> Includes the full name of each state, categorized by type as a state or region in the U.S.</li>
-                <li><strong>Time Dimension:</strong> Contains population data recorded every 10 years from 1910 to 2020.</li>
-                <li><strong>Population Metrics:</strong> Tracks the total resident population, percent change in population, and population density for each state or region.</li>
-                <li><strong>Density and Rankings:</strong> Provides population density figures and ranks states based on their density.</li>
-                <li><strong>Representation Details:</strong> Includes the number of representatives assigned to each state, changes in representation, and the average number of residents per representative.</li>
-            </ul>
-            
-        </section>
-        <section id="aqi-heatmap">
-            <h3> AQI Heatmap Comparison: 1980 vs. 2024 </h3>
-                <div class = 'center'>
-                    <iframe src="aqi_choropleth_1980.html" width="80%" height="400px" frameborder="0"></iframe>
-                </div>
-                
-                <p>The 1980 AQI Heatmap, as shown above, displays that in many parts of the county, 
-                    the average AQI was significantly high, particularly in the Northeast.</p>
-
-                <div style="background: #fff3cd; border-left: 4px solid #ffcd39; padding: 15px; margin-top: 10px;">
-                    <strong>Note:</strong> The 1980 AQI data does not include Wyoming or South Dakota. These states are excluded from the heatmap due to the unavailability of data for that year.
-                </div>
-
-                <br>
-    
-                <div class = 'center'>
-                    <iframe src="aqi_choropleth_2024.html" width="80%" height="400px" frameborder="0"></iframe>
-                </div>
-                <h4>User Interaction:</h4>
-                <ul>
-                    <li>Hover over each state on the map to see the state name and the average AQI.</li>
-                    <li>Click on each state to select it.</li>
-                    <li>Click and drag on the map to pan around.</li>
-                    <li>Click the <code>+</code> and <code>-</code> buttons to zoom in and out of the map.</li>
-                </ul>
-                <p>The 2024 AQI heatmap, as shown above, on the contrary has a very noticeable improvement 
-                    in average AQI throughout the country. It is clear that the Clean Air Act, other regulations, 
-                    and the lockdown in 2021 had a very noticeable improvement in air quality. Especially in regions 
-                    like the Northeast, West and some of the South. This correlates with a study showing that the top 
-                    three biggest decreases in air pollution during lockdown in America happened in Washington DC 
-                    with -21.1%, New York with -20.7%, and Boston with -18.5%
-                </p>
-    </section>
-
-    <section id="aqi-overview">
-                <h3>Overview of the AQI</h3>
-        
-        <div class="container">
-            <div class="text">
-                <p>These stacked bar charts compare the distribution of AQI categories 
-                    (e.g., Good, Moderate, Unhealthy) across major U.S. regions in 1980 and 2021. 
-                    Each region is displayed as a separate bar, with segments showing the proportion of 
-                    days falling into each AQI category. The 1980 chart highlights regions struggling 
-                    with higher proportions of "Unhealthy" and "Very Unhealthy" days, whereas the 2021 
-                    chart reveals a significant shift toward more "Good" and "Moderate" AQI days in many regions. 
-                    This side-by-side comparison underscores the regional disparities in air quality improvement 
-                    over time and helps pinpoint areas still facing persistent pollution challenges. 
-                    It is a crucial tool for evaluating the success of regional policies and environmental 
-                    management efforts.
-                </p>
-            </div>
-            <div class="image">
-                <img src="stacked_bar_aqi_distribution.png" frameborder="0"></img>
-            </div>
-        </div>
-        <div style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 15px; margin-top: 20px;">
-        <strong>Key Insight:</strong> By 2021, many U.S. regions saw a significant shift toward "Good" and "Moderate" AQI days, reflecting successful environmental policies and regulations.
-        </div>
-    </section>
-    <section id="aqi-events">
-        <h3>Significant Events and their Effect on AQI Between 1980 and 2024</h3>
-        <div class = 'center'>
-            <iframe src="aqi_trends_with_policies.html" width="80%" height="500px" frameborder="0"></iframe>
-        </div>
-        
         <p>
-            This chart displays the average Air Quality Index (AQI) trends from 1980 to 2024, highlighting key environmental policies, economic events, and natural phenomena that have influenced air quality. 
-            The blue line represents the annual average AQI, while labeled red markers and dashed lines identify specific years and events with significant environmental impacts.
+          The main dataset for this project is obtained from the Environmental
+          Protection Agency (EPA) Air Quality System (AQS) Data Mart,
+          specifically focusing on Daily Air Quality Index (AQI) data. On the
+          EPA website, the data is organized by year and into separate .csv
+          files. We downloaded each file, read the data with pandas, and
+          combined all the data for each year. The data is available for
+          download
+          <a
+            href="https://aqs.epa.gov/aqsweb/airdata/download_files.html#AQI"
+            target="_blank"
+            >here</a
+          >.
+        </p>
+
+        <p>
+          The dataset is comprehensive, with hundreds of thousands of entries
+          per year for each county. Our entire dataset from 1980 to 2024
+          includes 11,419,415 rows and 10 attributes. To efficiently analyze
+          trends over time, we grouped the data into meaningful intervals, such
+          as seasonal averages, yearly averages, and regional summaries. This
+          allowed us to reduce the complexity of the data while preserving
+          critical patterns and insights. By focusing on aggregated portions of
+          the data, such as the average AQI by year or season for each region,
+          we were able to identify long-term trends without being overwhelmed by
+          the raw data's size and detail.
+        </p>
+
+        <h4>Key Features of the Dataset:</h4>
+        <ul>
+          <li>
+            <strong>Location Details:</strong> Includes the state and county
+            names, along with unique codes identifying each location.
+          </li>
+          <li>
+            <strong>Time Dimension:</strong> Contains the specific dates when
+            AQI measurements were recorded.
+          </li>
+          <li>
+            <strong>Pollution Metrics:</strong> Tracks AQI values and assigns
+            them to categories such as "Good," "Moderate," or "Hazardous," based
+            on their severity.
+          </li>
+          <li>
+            <strong>Pollutant Details:</strong> Identifies the specific
+            pollutants contributing to air quality, such as ozone
+            (O<sub>3</sub>), sulfur dioxide (SO<sub>2</sub>), carbon monoxide
+            (CO), and nitrogen dioxide (NO<sub>2</sub>).
+          </li>
+          <li>
+            <strong>Monitoring Sites:</strong> Provides information on the
+            number of sites reporting data and unique site identifiers.
+          </li>
+        </ul>
+
+        <h4>Population Dataset From the United States Census Bureau</h4>
+        <p>
+          To understand how population dynamics correlate with AQI changes, we
+          incorporated population data from the United States Census Bureau. The
+          population dataset includes population estimates for each state and
+          region from 1910 to 2020, with a census being conducted once every 10
+          years. This dataset contains a total of 684 rows and 10 attributes,
+          offering a comprehensive view of population trends over more than a
+          century. The data is available for download
+          <a
+            href="https://www.census.gov/data/tables/time-series/dec/density-data-text.html"
+            target="_blank"
+            >here</a
+          >.
+        </p>
+
+        <p>
+          This dataset allows us to analyze trends in AQI relative to population
+          growth. By combining these two datasets, we can investigate how
+          factors like population density and urbanization might impact air
+          quality over time. For example, we explore whether states with
+          significant population growth experienced corresponding changes in AQI
+          and whether improvements in air quality were consistent across regions
+          with varying population trends.
+        </p>
+
+        <h4>Key Features of the Dataset:</h4>
+        <ul>
+          <li>
+            <strong>Location and Geography:</strong> Includes the full name of
+            each state, categorized by type as a state or region in the U.S.
+          </li>
+          <li>
+            <strong>Time Dimension:</strong> Contains population data recorded
+            every 10 years from 1910 to 2020.
+          </li>
+          <li>
+            <strong>Population Metrics:</strong> Tracks the total resident
+            population, percent change in population, and population density for
+            each state or region.
+          </li>
+          <li>
+            <strong>Density and Rankings:</strong> Provides population density
+            figures and ranks states based on their density.
+          </li>
+          <li>
+            <strong>Representation Details:</strong> Includes the number of
+            representatives assigned to each state, changes in representation,
+            and the average number of residents per representative.
+          </li>
+        </ul>
+      </section>
+      <section id="aqi-heatmap">
+        <h3>AQI Heatmap Comparison: 1980 vs. 2024</h3>
+        <div class="center">
+          <iframe
+            src="aqi_choropleth_1980.html"
+            width="80%"
+            height="400px"
+            frameborder="0"
+          ></iframe>
+        </div>
+
+        <p>
+          The 1980 AQI Heatmap, as shown above, displays that in many parts of
+          the county, the average AQI was significantly high, particularly in
+          the Northeast.
+        </p>
+
+        <div
+          style="
+            background: #fff3cd;
+            border-left: 4px solid #ffcd39;
+            padding: 15px;
+            margin-top: 10px;
+          "
+        >
+          <strong>Note:</strong> The 1980 AQI data does not include Wyoming or
+          South Dakota. These states are excluded from the heatmap due to the
+          unavailability of data for that year.
+        </div>
+
+        <br />
+
+        <div class="center">
+          <iframe
+            src="aqi_choropleth_2024.html"
+            width="80%"
+            height="400px"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <h4>User Interaction:</h4>
+        <ul>
+          <li>
+            Hover over each state on the map to see the state name and the
+            average AQI.
+          </li>
+          <li>Click on each state to select it.</li>
+          <li>Click and drag on the map to pan around.</li>
+          <li>
+            Click the <code>+</code> and <code>-</code> buttons to zoom in and
+            out of the map.
+          </li>
+        </ul>
+        <p>
+          The 2024 AQI heatmap, as shown above, on the contrary has a very
+          noticeable improvement in average AQI throughout the country. It is
+          clear that the Clean Air Act, other regulations, and the lockdown in
+          2021 had a very noticeable improvement in air quality. Especially in
+          regions like the Northeast, West and some of the South. This
+          correlates with a study showing that the top three biggest decreases
+          in air pollution during lockdown in America happened in Washington DC
+          with -21.1%, New York with -20.7%, and Boston with -18.5%
+        </p>
+      </section>
+
+      <section id="aqi-overview">
+        <h3>Overview of the AQI</h3>
+
+        <div class="overview-container">
+          <div class="overview-image">
+            <img
+              src="stacked_bar_aqi_distribution.png"
+              alt="AQI Distribution Comparison"
+            />
+          </div>
+
+          <div class="overview-text">
+            <p>
+              These stacked bar charts compare the distribution of AQI
+              categories (e.g., Good, Moderate, Unhealthy) across major U.S.
+              regions in 1980 and 2021. Each region is displayed as a separate
+              bar, with segments showing the proportion of days falling into
+              each AQI category. The 1980 chart highlights regions struggling
+              with higher proportions of "Unhealthy" and "Very Unhealthy" days,
+              whereas the 2021 chart reveals a significant shift toward more
+              "Good" and "Moderate" AQI days in many regions. This side-by-side
+              comparison underscores the regional disparities in air quality
+              improvement over time and helps pinpoint areas still facing
+              persistent pollution challenges. It is a crucial tool for
+              evaluating the success of regional policies and environmental
+              management efforts.
+            </p>
+          </div>
+        </div>
+        <div
+          style="
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin-top: 20px;
+          "
+        >
+          <strong>Key Insight:</strong> By 2021, many U.S. regions saw a
+          significant shift toward "Good" and "Moderate" AQI days, reflecting
+          successful environmental policies and regulations.
+        </div>
+      </section>
+      <section id="aqi-events">
+        <h3>
+          Significant Events and their Effect on AQI Between 1980 and 2024
+        </h3>
+        <div class="center">
+          <iframe
+            src="aqi_trends_with_policies.html"
+            width="80%"
+            height="500px"
+            frameborder="0"
+          ></iframe>
+        </div>
+
+        <p>
+          This chart displays the average Air Quality Index (AQI) trends from
+          1980 to 2024, highlighting key environmental policies, economic
+          events, and natural phenomena that have influenced air quality. The
+          blue line represents the annual average AQI, while labeled red markers
+          and dashed lines identify specific years and events with significant
+          environmental impacts.
         </p>
 
         <h4>Key Observations:</h4>
         <ul>
-            <li><strong>Montreal Protocol (1987):</strong> Marked a turning point in phasing out ozone-depleting substances, contributing to gradual improvements in air quality.</li>
-            <li><strong>Clean Air Act Amendments (1990):</strong> Stricter regulations on industrial and vehicle emissions led to a noticeable decline in AQI during the early 1990s.</li>
-            <li><strong>Energy Policy Act (2005) and Cross-State Air Pollution Rule (2011):</strong> These policies reinforced air pollution controls, contributing to a stabilization of AQI levels.</li>
-            <li><strong>2008 Economic Recession:</strong> Reduced industrial activity and transportation during the global recession correlated with improved air quality in 2008.</li>
-            <li><strong>COVID-19 Pandemic (2020):</strong> Lockdowns and restricted mobility resulted in a temporary reduction in emissions, reflected in the AQI dip during 2020.</li>
-            <li><strong>Canadian Wildfires (2023):</strong> Highlighted by a sharp spike in AQI, this event reflects the impact of natural disasters on air quality.</li>
+          <li>
+            <strong>Montreal Protocol (1987):</strong> Marked a turning point in
+            phasing out ozone-depleting substances, contributing to gradual
+            improvements in air quality.
+          </li>
+          <li>
+            <strong>Clean Air Act Amendments (1990):</strong> Stricter
+            regulations on industrial and vehicle emissions led to a noticeable
+            decline in AQI during the early 1990s.
+          </li>
+          <li>
+            <strong
+              >Energy Policy Act (2005) and Cross-State Air Pollution Rule
+              (2011):</strong
+            >
+            These policies reinforced air pollution controls, contributing to a
+            stabilization of AQI levels.
+          </li>
+          <li>
+            <strong>2008 Economic Recession:</strong> Reduced industrial
+            activity and transportation during the global recession correlated
+            with improved air quality in 2008.
+          </li>
+          <li>
+            <strong>COVID-19 Pandemic (2020):</strong> Lockdowns and restricted
+            mobility resulted in a temporary reduction in emissions, reflected
+            in the AQI dip during 2020.
+          </li>
+          <li>
+            <strong>Canadian Wildfires (2023):</strong> Highlighted by a sharp
+            spike in AQI, this event reflects the impact of natural disasters on
+            air quality.
+          </li>
         </ul>
-    </section>
-        
-    <section id="aqi-trends">
-        <h3> AQI trends Over Time </h3>
+      </section>
 
-        <div class = 'container'>
-            <div class = 'text'>
-                <p>This chart illustrates the AQI trends over time for the five most polluted states and the 
-                    five least polluted states, based on data from 1980 and 2021. The top 5 states are 
-                    represented with solid lines, showing significant reductions in AQI for most of these states,
-                     reflecting progress in combating air pollution. The bottom 5 states are shown with 
-                     dashed lines, emphasizing their consistently low AQI levels across both years. 
-                     This visualization provides insights into the effectiveness of air quality 
-                     improvement measures over time, highlighting states that have made substantial 
-                     progress and those that maintain clean air standards. Policymakers and researchers 
-                     can leverage this data to identify successful strategies and areas requiring further 
-                     intervention.
-                </p>
-            </div>
-            <div class = 'image'>
-                <img src="most_line_aqi_trends.png" width="100%" height="500px" frameborder="0"></img>
-            </div>
-            <div class = 'image'>
-                <img src="least_line_aqi_trends.png" width="100%" height="500px" frameborder="0"></img>
-            </div>     
+      <section id="aqi-trends">
+        <h3>AQI Trends Over Time</h3>
+
+        <div class="trends-container">
+          <div class="trends-chart">
+            <img
+              src="most_line_aqi_trends.png"
+              alt="Top 5 Most Polluted States"
+            />
+            <p>Top 5 States AQI Trends (1980 vs. 2021)</p>
+          </div>
+          <div class="trends-chart">
+            <img
+              src="least_line_aqi_trends.png"
+              alt="Bottom 5 Least Polluted States"
+            />
+            <p>Bottom 5 States AQI Trends (1980 vs. 2021)</p>
+          </div>
         </div>
 
-        <div class = 'center'>
-            <iframe src="average_aqi_by_state.html" width="95%" height="600px" frameborder="0"></iframe>
+        <div class="text">
+          <p>
+            This chart illustrates the AQI trends over time for the five most
+            polluted states and the five least polluted states, based on data
+            from 1980 and 2021. The top 5 states are represented with solid
+            lines, showing significant reductions in AQI for most of these
+            states, reflecting progress in combating air pollution. The bottom 5
+            states are shown with dashed lines, emphasizing their consistently
+            low AQI levels across both years. This visualization provides
+            insights into the effectiveness of air quality improvement measures
+            over time, highlighting states that have made substantial progress
+            and those that maintain clean air standards. Policymakers and
+            researchers can leverage this data to identify successful strategies
+            and areas requiring further intervention.
+          </p>
+        </div>
+
+        <div class="center">
+          <iframe
+            src="average_aqi_by_state.html"
+            width="95%"
+            height="600px"
+            frameborder="0"
+          ></iframe>
         </div>
 
         <h4>User Interaction:</h4>
         <ul>
-            <li>Hover over each point to see the state name, AQI value, and year.</li>
-            <li>Click and drag the slider to select each year.</li>
+          <li>
+            Hover over each point to see the state name, AQI value, and year.
+          </li>
+          <li>Click and drag the slider to select each year.</li>
         </ul>
 
         <p>
-            The bar chart reveals key insights into air quality trends across the United States. States like California consistently 
-            show high AQI levels due to persistent wildfires that release significant amounts of pollutants into the air, highlighting 
-            ongoing environmental challenges. On the other hand, states such as Hawaii and Washington often have some of the lowest AQI 
-            values, benefiting from factors like geographical isolation and favorable environmental conditions. An interesting trend is 
-            the noticeable improvement in AQI during 2020, coinciding with COVID-19 lockdowns, which significantly reduced transportation 
-            and industrial emissions. This analysis underscores the profound impact of external factors, like wildfires and global events, 
-            on air quality and the importance of continued efforts to address these challenges
+          The bar chart reveals key insights into air quality trends across the
+          United States. States like California consistently show high AQI
+          levels due to persistent wildfires that release significant amounts of
+          pollutants into the air, highlighting ongoing environmental
+          challenges. On the other hand, states such as Hawaii and Washington
+          often have some of the lowest AQI values, benefiting from factors like
+          geographical isolation and favorable environmental conditions. An
+          interesting trend is the noticeable improvement in AQI during 2020,
+          coinciding with COVID-19 lockdowns, which significantly reduced
+          transportation and industrial emissions. This analysis underscores the
+          profound impact of external factors, like wildfires and global events,
+          on air quality and the importance of continued efforts to address
+          these challenges
         </p>
-
 
         <h3>Seasonal AQI Trends</h3>
-            <div id="aqi-trends-container"></div>
-            <script>
-            createAQICharts("seasonal_avg_combined.json");
-            </script>
+        <div id="aqi-trends-container"></div>
+        <script>
+          createAQICharts("seasonal_avg_combined.json");
+        </script>
 
-<p>This visualization presents separate Air Quality Index (AQI) charts for each U.S. region in a 2x2 grid layout. The charts 
-    illustrate AQI trends across different seasons for 1980 and 2023, providing a detailed view of changes over time. For example, 
-    the Northeast, which exhibited the highest AQI levels in 1980—particularly during summer—saw notable reductions by 2023. This 
-    reflects the success of environmental policies and emission controls.</p>
+        <p>
+          This visualization presents separate Air Quality Index (AQI) charts
+          for each U.S. region in a 2x2 grid layout. The charts illustrate AQI
+          trends across different seasons for 1980 and 2023, providing a
+          detailed view of changes over time. For example, the Northeast, which
+          exhibited the highest AQI levels in 1980—particularly during
+          summer—saw notable reductions by 2023. This reflects the success of
+          environmental policies and emission controls.
+        </p>
 
-<p>Seasonal patterns consistently show that summer experiences the highest AQI due to increased ozone formation from heat and sunlight, 
-    while winter exhibits the lowest levels. The unusual spike in AQI in the Fall of 1980 in the West can be attributed to the 
-    Panorama Fire, a destructive wildfire in California. Regional differences persist, with the West showing substantial improvements, 
-    particularly during summer and fall, due to better wildfire management and pollution control efforts.</p>
+        <p>
+          Seasonal patterns consistently show that summer experiences the
+          highest AQI due to increased ozone formation from heat and sunlight,
+          while winter exhibits the lowest levels. The unusual spike in AQI in
+          the Fall of 1980 in the West can be attributed to the Panorama Fire, a
+          destructive wildfire in California. Regional differences persist, with
+          the West showing substantial improvements, particularly during summer
+          and fall, due to better wildfire management and pollution control
+          efforts.
+        </p>
 
-<p>Overall, this layout of regional charts highlights the effectiveness of decades of regulatory measures while emphasizing the 
-    importance of addressing seasonal pollution and regional disparities to ensure sustained progress in air quality.</p>
-    </section>
+        <p>
+          Overall, this layout of regional charts highlights the effectiveness
+          of decades of regulatory measures while emphasizing the importance of
+          addressing seasonal pollution and regional disparities to ensure
+          sustained progress in air quality.
+        </p>
+      </section>
 
-    <section id="comparison">
+      <section id="comparison">
         <h3>Compare Population Density and AQI</h3>
 
-        <div class = 'center'>
-            <iframe src="aqi_population_scatter_plot.html" width="95%" height="550px" frameborder="0"></iframe>
+        <div class="center">
+          <iframe
+            src="aqi_population_scatter_plot.html"
+            width="95%"
+            height="550px"
+            frameborder="0"
+          ></iframe>
         </div>
 
         <h4>User Interaction:</h4>
         <ul>
-            <li>Hover over each point to see the state name, population density, AQI value, year and region.</li>
-            <li>Drag the slider to select different years between 1980 and 2020.</li>
-            <li>Click on the radio buttons to filter by region or select all regions.</li>
+          <li>
+            Hover over each point to see the state name, population density, AQI
+            value, year and region.
+          </li>
+          <li>
+            Drag the slider to select different years between 1980 and 2020.
+          </li>
+          <li>
+            Click on the radio buttons to filter by region or select all
+            regions.
+          </li>
         </ul>
 
         <p>
-            This scatter plot illustrates the relationship between population density and the Air Quality Index (AQI) for U.S. states between 1980 and 2020. 
-            Each point represents a state, color-coded by its region (Mid-Atlantic, Midwest, New England, South, or West), with population density on the x-axis and AQI on the y-axis.
+          This scatter plot illustrates the relationship between population
+          density and the Air Quality Index (AQI) for U.S. states between 1980
+          and 2020. Each point represents a state, color-coded by its region
+          (Mid-Atlantic, Midwest, New England, South, or West), with population
+          density on the x-axis and AQI on the y-axis.
         </p>
         <p>
-            Between 1980 and 2020, this scatter plot highlights significant improvements in air quality across U.S. states while maintaining the relationship between population density and the Air Quality Index (AQI). 
-            In 1980, states with lower population densities, particularly in the Midwest and South, exhibited a wide range of AQI values, with some states having significantly high AQI levels. This underscores how industrial activities, regional pollution sources, and a lack of stringent environmental regulations heavily influenced air quality in less populated areas. 
-            Meanwhile, urbanized regions like New England and the Mid-Atlantic displayed relatively lower AQI values, reflecting the early adoption of pollution control measures and infrastructure investments in densely populated areas.
-        </p> 
-        <p>
-            By 2020, the data reveals a consistent downward shift in AQI values across all regions. 
-            The average AQI dropped from 51 in 1980 to 40 in 2020, which can be attributed to decades of regulatory efforts, including the Clean Air Act, advancements in emissions technology, and better enforcement of environmental standards. 
-            Regions with high population densities have further improved their air quality, solidifying the link between urbanization, infrastructure investment, and effective air quality management. For example, Connecticut had the worst recorded AQI in 1980 at 86, but it drastically improved to an AQI of 43 in 2020. 
+          Between 1980 and 2020, this scatter plot highlights significant
+          improvements in air quality across U.S. states while maintaining the
+          relationship between population density and the Air Quality Index
+          (AQI). In 1980, states with lower population densities, particularly
+          in the Midwest and South, exhibited a wide range of AQI values, with
+          some states having significantly high AQI levels. This underscores how
+          industrial activities, regional pollution sources, and a lack of
+          stringent environmental regulations heavily influenced air quality in
+          less populated areas. Meanwhile, urbanized regions like New England
+          and the Mid-Atlantic displayed relatively lower AQI values, reflecting
+          the early adoption of pollution control measures and infrastructure
+          investments in densely populated areas.
         </p>
         <p>
-            Based on the data, we can conclude that although population density may play a factor in worse AQI, other factors, 
-            such as industrial activity, regional pollution sources, and the effectiveness of environmental regulations, can significantly influence AQI values. 
+          By 2020, the data reveals a consistent downward shift in AQI values
+          across all regions. The average AQI dropped from 51 in 1980 to 40 in
+          2020, which can be attributed to decades of regulatory efforts,
+          including the Clean Air Act, advancements in emissions technology, and
+          better enforcement of environmental standards. Regions with high
+          population densities have further improved their air quality,
+          solidifying the link between urbanization, infrastructure investment,
+          and effective air quality management. For example, Connecticut had the
+          worst recorded AQI in 1980 at 86, but it drastically improved to an
+          AQI of 43 in 2020.
         </p>
-    </section>
+        <p>
+          Based on the data, we can conclude that although population density
+          may play a factor in worse AQI, other factors, such as industrial
+          activity, regional pollution sources, and the effectiveness of
+          environmental regulations, can significantly influence AQI values.
+        </p>
+      </section>
 
-    <section id="summary">
+      <section id="summary">
         <h3>Summary and Additional Work</h3>
 
         <p>
-            This analysis of Air Quality Index trends across the United States highlights the progress made to improve
-             air quality over the decades, along with the continued challenges in certain regions and seasons. Notable 
-             improvements in AQI levels have been realized, with the Northeast and West registering the most improvements 
-             due to the success of environmental regulations such as the Clean Air Act and technological enhancements to 
-             pollution controls. However, with climate change concerns in the future and correlations between air quality
-             and health outcomes, it is essential to continue monitoring and addressing climate change as a whole
-             to prevent further air pollution to ensure a healthier environment for all.
+          This analysis of Air Quality Index trends across the United States
+          highlights the progress made to improve air quality over the decades,
+          along with the continued challenges in certain regions and seasons.
+          Notable improvements in AQI levels have been realized, with the
+          Northeast and West registering the most improvements due to the
+          success of environmental regulations such as the Clean Air Act and
+          technological enhancements to pollution controls. However, with
+          climate change concerns in the future and correlations between air
+          quality and health outcomes, it is essential to continue monitoring
+          and addressing climate change as a whole to prevent further air
+          pollution to ensure a healthier environment for all.
         </p>
         <p>
-            A number of activities will help ensure that these air quality improvements are sustained and continue well into the future.
-             Furthermore, deeper regulation and investment in greener technologies are needed if pollution levels are to be further 
-             reduced. Expanding the air quality monitoring infrastructure across more rural and underserved areas will ensure more 
-             complete data collection and targeted interventions. In addition, a reduction in greenhouse gas emissions and increased 
-             urban greenery will help to combat the impacts of rising temperatures on ozone and particulate matter levels.
+          A number of activities will help ensure that these air quality
+          improvements are sustained and continue well into the future.
+          Furthermore, deeper regulation and investment in greener technologies
+          are needed if pollution levels are to be further reduced. Expanding
+          the air quality monitoring infrastructure across more rural and
+          underserved areas will ensure more complete data collection and
+          targeted interventions. In addition, a reduction in greenhouse gas
+          emissions and increased urban greenery will help to combat the impacts
+          of rising temperatures on ozone and particulate matter levels.
         </p>
 
-        <p> 
-            By prioritizing air quality monitoring and policy intervention, the United States will continue to protect public 
-            health and promote environmental sustainability for future generations.
-            In the future, we plan to explore the relationship between air quality and health outcomes, 
-            including respiratory diseases and cardiovascular conditions. We will also investigate the 
-            impact of air quality on economic productivity and environmental sustainability. By integrating 
-            additional datasets on health, economic, and environmental indicators, we aim to provide a more 
-            comprehensive analysis of the implications of air quality on society and the environment.
-
+        <p>
+          By prioritizing air quality monitoring and policy intervention, the
+          United States will continue to protect public health and promote
+          environmental sustainability for future generations. In the future, we
+          plan to explore the relationship between air quality and health
+          outcomes, including respiratory diseases and cardiovascular
+          conditions. We will also investigate the impact of air quality on
+          economic productivity and environmental sustainability. By integrating
+          additional datasets on health, economic, and environmental indicators,
+          we aim to provide a more comprehensive analysis of the implications of
+          air quality on society and the environment.
         </p>
 
         <h3>References</h3>
-            <ol>
-                <li>Guarnieri, M., et al. “Air Quality Index and Air Quality Awareness among Adults in the United States.” Environmental Research, Academic Press, 25 Jan. 2020, 
-                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0013935120300773" target="_blank">www.sciencedirect.com/science/article/abs/pii/S0013935120300773.</a></li>
-                <li>“Air Quality National Summary.” EPA, Environmental Protection Agency, 16 Aug. 2024,
-                    <a href="https://www.epa.gov/air-trends/air-quality-national-summary" target="_blank">www.epa.gov/air-trends/air-quality-national-summary.</a></li>
-                <li>Kim, Moon-Jung, et al. “Impact of Income, Density, and Population Size on PM2.5 Pollutions: A Scaling Analysis of 254 Large Cities in Six Developed Countries.” International Journal of Environmental Research and Public Health, U.S. National Library of Medicine, 26 Aug. 2021, 
-                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8430803/" target="_blank">pmc.ncbi.nlm.nih.gov/articles/PMC8430803.</a></li>
-            </ol>
-    </section>
-</main>
-<!-- Footer with hoverable links -->
-<footer style="text-align: center; padding: 20px; background: #187bcd; color: #fff;">
-    <p> DS4200 Final Project: Aryan Jain, Alex Sun, Kiara Brcic Sutton, Sara Shee </p>
-    <p>
-        <a href="#introduction" style="color: #f39c12; text-decoration: none;">Back to Top</a>
-    </p>
-</footer>
-</body>
+        <ol>
+          <li>
+            Guarnieri, M., et al. “Air Quality Index and Air Quality Awareness
+            among Adults in the United States.” Environmental Research, Academic
+            Press, 25 Jan. 2020,
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S0013935120300773"
+              target="_blank"
+              >www.sciencedirect.com/science/article/abs/pii/S0013935120300773.</a
+            >
+          </li>
+          <li>
+            “Air Quality National Summary.” EPA, Environmental Protection
+            Agency, 16 Aug. 2024,
+            <a
+              href="https://www.epa.gov/air-trends/air-quality-national-summary"
+              target="_blank"
+              >www.epa.gov/air-trends/air-quality-national-summary.</a
+            >
+          </li>
+          <li>
+            Kim, Moon-Jung, et al. “Impact of Income, Density, and Population
+            Size on PM2.5 Pollutions: A Scaling Analysis of 254 Large Cities in
+            Six Developed Countries.” International Journal of Environmental
+            Research and Public Health, U.S. National Library of Medicine, 26
+            Aug. 2021,
+            <a
+              href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8430803/"
+              target="_blank"
+              >pmc.ncbi.nlm.nih.gov/articles/PMC8430803.</a
+            >
+          </li>
+        </ol>
+      </section>
+    </main>
+    <!-- Footer with hoverable links -->
+    <footer
+      style="
+        text-align: center;
+        padding: 20px;
+        background: #187bcd;
+        color: #fff;
+      "
+    >
+      <p>
+        DS4200 Final Project: Aryan Jain, Alex Sun, Kiara Brcic Sutton, Sara
+        Shee
+      </p>
+      <p>
+        <a href="#introduction" style="color: #f39c12; text-decoration: none"
+          >Back to Top</a
+        >
+      </p>
+    </footer>
+  </body>
 </html>

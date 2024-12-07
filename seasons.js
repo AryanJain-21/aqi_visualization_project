@@ -22,6 +22,7 @@ function createAQICharts(jsonDataPath) {
         .append("h4")
         .text(`AQI Seasonal Trends: ${region}`);
 
+  
       const svg = chartContainer
         .append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -84,7 +85,7 @@ function createAQICharts(jsonDataPath) {
 
       const legend = svg
         .append("g")
-        .attr("transform", `translate(${width - margin.right},${margin.top - 20})`);
+        .attr("transform", `translate(${width - margin.right},${margin.top})`);
 
       legend
         .append("line")
