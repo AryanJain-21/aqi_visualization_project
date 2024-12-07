@@ -77,14 +77,18 @@ regions = {
              'Oregon', 'Utah', 'Washington', 'Wyoming']
 }
 
+
 # Assign regions to both datasets
 combined_aqi['Region'] = 'Other'  # Default value
 for region, states in regions.items():
     combined_aqi.loc[combined_aqi['State Name'].isin(states), 'Region'] = region
 
+# Filter out rows where Region is 'Other'
+filtered_aqi = combined_aqi[combined_aqi['Region'] != 'Other']
+
 # Group by region and category for 1980 and 2021 separately
-region_category_1980 = combined_aqi[combined_aqi['Year'] == 1980].groupby(['Region', 'Category']).size().unstack(fill_value=0)
-region_category_2021 = combined_aqi[combined_aqi['Year'] == 2021].groupby(['Region', 'Category']).size().unstack(fill_value=0)
+region_category_1980 = filtered_aqi[filtered_aqi['Year'] == 1980].groupby(['Region', 'Category']).size().unstack(fill_value=0)
+region_category_2021 = filtered_aqi[filtered_aqi['Year'] == 2021].groupby(['Region', 'Category']).size().unstack(fill_value=0)
 
 # Custom colormap for pollution levels (light blue to dark blue)
 pollution_colors = mcolors.LinearSegmentedColormap.from_list(
