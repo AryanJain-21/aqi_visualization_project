@@ -36,12 +36,13 @@ for state in top_5_states:
 plt.title('AQI Trends for Top 5 Most Polluted States (1980 vs 2021)', fontsize=16)
 plt.xlabel('Year', fontsize=14)
 plt.ylabel('Average AQI', fontsize=14)
+plt.ylim(10, 100)
 plt.xticks([1980, 2021], fontsize=12)
 plt.yticks(fontsize=12)
 plt.legend(title='State', fontsize=12)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-plt.savefig("most_line_aqi_trends.png")
+plt.savefig("static_visualizations/most_line_aqi_trends.png")
 plt.show()
 
 # Line Chart for Bottom 5 Least Polluted States
@@ -53,12 +54,13 @@ for state in bottom_5_states:
 plt.title('AQI Trends for Bottom 5 Least Polluted States (1980 vs 2021)', fontsize=16)
 plt.xlabel('Year', fontsize=14)
 plt.ylabel('Average AQI', fontsize=14)
+plt.ylim(10, 100)
 plt.xticks([1980, 2021], fontsize=12)
 plt.yticks(fontsize=12)
 plt.legend(title='State', fontsize=12)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
-plt.savefig("least_line_aqi_trends.png")
+plt.savefig("static_visualizations/least_line_aqi_trends.png")
 plt.show()
 
 # Stacked Bar Chart: AQI Category Distribution by Region
@@ -103,5 +105,5 @@ ax[1].set_xlabel('Region', fontsize=12)
 ax[1].tick_params(axis='x', rotation=45)
 
 plt.tight_layout()
-fig.savefig("stacked_bar_aqi_distribution.png")
+fig.savefig("static_visualizations/stacked_bar_aqi_distribution.png")
 plt.show()
